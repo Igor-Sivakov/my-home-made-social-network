@@ -1,0 +1,16 @@
+.header {
+  grid-area: head;
+  display: flex;
+}
+
+.header-main {
+  width: 100%;
+  background-color: aliceblue;
+  display: flex;
+}
+
+.header-main__logo {
+  display: flex;
+  margin-left: 20px;
+  
+}

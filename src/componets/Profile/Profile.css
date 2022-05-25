@@ -1,0 +1,5 @@
+.profile-content {
+  grid-area: main-content;
+  min-height: 800px;
+}
+

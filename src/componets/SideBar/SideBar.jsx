@@ -1,22 +1,22 @@
-
+import './SideBar.css';
 
 const SideBar = () => {
   return (
-    <nav className='nav'>
-          <div className='side-bar'>
-            <div>
+    <nav className='side-bar'>
+          <div className='side-bar__nav'>
+            <div className="side-bar__nav__item">
               <a src='#'>Profile</a>
             </div>
-            <div>
+            <div className="side-bar__nav__item">
               <a src='#'>Messages</a>
             </div>
-            <div>
+            <div className="side-bar__nav__item">
               <a src='#'>News</a>
             </div>
-            <div>
+            <div className="side-bar__nav__item">
               <a src='#'>Music</a>
             </div>
-            <div>
+            <div className="side-bar__nav__item">
               <a src='#'>Settings</a>
             </div>
           </div>

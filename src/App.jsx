@@ -1,7 +1,7 @@
 import './App.css';
-import Header from './componets/Header';
-import Profile from './componets/Profile';
-import SideBar from './componets/SideBar';
+import Header from './componets/Header/Header';
+import Profile from './componets/Profile/Profile';
+import SideBar from './componets/SideBar/SideBar';
 
 const App = () => {
   return (
