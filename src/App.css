@@ -5,7 +5,7 @@
   color:rgb(69, 69, 71);
 } 
 
-.wrapper {
+.app-wrapper {
   background: lightblue;
   width: 1200px;
   margin: 0 auto;
@@ -19,7 +19,9 @@
   grid-gap: 10px; 
 }
 
-
-
+.app-wrapper__main {
+  grid-area: main-content;
+  min-height: 800px;
+}
 
 

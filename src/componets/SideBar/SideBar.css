@@ -4,19 +4,25 @@
   display: flex;
 }
 
-.side-bar__nav div {
+.side-bar__item {
   margin: 20px 10px 0px 20px;
 }
-.side-bar__nav div:last-child {
+
+.side-bar__item:last-child {
   margin-top: 40px;
 } 
 
-.side-bar__nav a {
+.side-bar__item__link {
   font-size: 20px;
   font-weight: 600;
   color:rgb(69, 69, 71);
+  text-decoration: none;
 }
 
-.side-bar__nav a:hover {
+.side-bar__item__link_active {
+  color: gold;
+}
+
+.side-bar__item__link:hover {
   color: gold;
 }

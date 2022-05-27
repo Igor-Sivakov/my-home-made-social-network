@@ -1,12 +1,17 @@
 import './Post.css';
 
-const Post = () => {
+const Post = (props) => {
   return (
-    <div className='comments-inner'>
-            <div className='commetns__circle'></div>
-            <div className='comments__text'>Hey, why nobody loves me?</div>
-          </div>
+    <div>
+      <div className='comments-inner'>
+        <div className='commetns__avatar'></div>
+        <div className='comments__text'>{props.message}</div>
+      </div>
+      <div>
+        <span>like {props.likeCounts}</span>
+      </div>
+    </div>
   );
-}
+};
 
 export default Post;

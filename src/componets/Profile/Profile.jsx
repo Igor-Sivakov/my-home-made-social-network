@@ -6,19 +6,16 @@ import Wallpaper from './Wallpaper/Wallpaper';
 
 const Profile = () => {
   return (
-    <main className='profile-content'>
-          <div> {/* wrapper */}
-            <Wallpaper  />
-            <Card  />
-          </div>
-          <MyPost  />
-          <Post  />
-          <Post  />
-          <Post  />
-          <Post  />
-          <Post  />
-        </main>
+    <div className='profile-content'>
+      <div>
+        <Wallpaper />
+        <Card />
+      </div>
+      <MyPost />
+      <Post message='Hey, how are you?' likeCounts='15' />
+      <Post message="Yo, it's my fist post!" likeCounts='21' />
+    </div>
   );
-}
+};
 
 export default Profile;
