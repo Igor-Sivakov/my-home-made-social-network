@@ -10,7 +10,11 @@
 }
 
 .header-main__logo {
+  width: 17.5%;
   display: flex;
-  margin-left: 20px;
-  
+  margin-left: 0px;
+  background-color: white; 
+}
+.header-main__logo img {
+  margin-left: 50px;
 }

@@ -1,34 +1,34 @@
+import { NavLink } from 'react-router-dom';
 import './SideBar.css';
-import './SideBarActiveLink';
 
 const SideBar = () => {
   return (
     <nav className='side-bar'>
       <div className='side-bar__wrapper'>
         <div className='side-bar__item'>
-          <a href='/Profile' className='side-bar__item__link'>
+          <NavLink to='/Profile' className='side-bar__item__link mod1'>
             Profile
-          </a>
+          </NavLink>
         </div>
         <div className='side-bar__item'>
-          <a href='/Dialogs' className='side-bar__item__link'>
+          <NavLink to='/Dialogs' className='side-bar__item__link mod2'>
             Messages
-          </a>
+          </NavLink>
         </div>
         <div className='side-bar__item'>
-          <a href='/News' className='side-bar__item__link'>
+          <NavLink to='/News' className='side-bar__item__link mod3'>
             News
-          </a>
+          </NavLink>
         </div>
         <div className='side-bar__item'>
-          <a href='#' className='side-bar__item__link'>
+          <NavLink to='/Music' className='side-bar__item__link mod4'>
             Music
-          </a>
+          </NavLink>
         </div>
         <div className='side-bar__item'>
-          <a src='#' className='side-bar__item__link'>
+          <NavLink to='/Settings' className='side-bar__item__link mod5'>
             Settings
-          </a>
+          </NavLink>
         </div>
       </div>
     </nav>

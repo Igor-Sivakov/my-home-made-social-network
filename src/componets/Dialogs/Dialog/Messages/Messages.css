@@ -1,0 +1,39 @@
+
+.message__item {
+  display: flex;
+  margin-top: 30px;
+  margin-left: 50px;
+}
+.message__item__avatar {
+  display: inline-block;
+  text-align: center;
+  margin-right: 20px;
+}
+.message__item__avatar p {
+  margin: 0px;
+}
+
+.message__item__avatar img{
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  border-radius: 50px;
+}
+
+.message__item__userName {
+  font-size: 15px;
+}
+
+
+.message__item__innerText {
+  border: solid 2px rgb(208, 208, 208);
+  border-radius: 10px;
+  background-color: white;
+  margin-top: 20px;
+}
+
+.message__item__text {
+  font-size: 14px;
+  padding: 0px 20px 0px 20px;
+}
+

@@ -1,28 +1,32 @@
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Dialogs from './componets/Dialogs/Dialogs';
 import Header from './componets/Header/Header';
+import Music from './componets/Music/Music';
 import News from './componets/News/News';
 import Profile from './componets/Profile/Profile';
 import SideBar from './componets/SideBar/SideBar';
+import Settings from './componets/Settings/Settings';
 
 const App = () => {
   return (
-    <div className='body'>
-      <div className='app-wrapper'>
-        <Header />
-        <SideBar />
-        <main className='app-wrapper__main'>
-          <BrowserRouter>
+    <BrowserRouter>
+      <div className='body'>
+        <div className='app-wrapper'>
+          <Header />
+          <SideBar />
+          <main className='app-wrapper__main'>
             <Routes>
               <Route path='/Profile' element={<Profile />} />
               <Route path='/Dialogs' element={<Dialogs />} />
               <Route path='/News' element={<News />} />
+              <Route path='/Music' element={<Music />} />
+              <Route path='/Settings' element={<Settings />} />
             </Routes>
-          </BrowserRouter>
-        </main>
+          </main>
+        </div>
       </div>
-    </div>
+    </BrowserRouter>
   );
 };
 

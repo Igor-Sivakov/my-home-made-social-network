@@ -19,8 +19,20 @@
   text-decoration: none;
 }
 
-.side-bar__item__link_active {
-  color: gold;
+.mod1.active {
+  color: rgb(255, 221, 28);
+}
+.mod2.active {
+  color: rgb(142, 224, 142);
+}
+.mod3.active {
+  color: rgb(27, 208, 211);
+}
+.mod4.active{
+  color: hotpink;
+}
+.mod5.active {
+  color:mediumpurple;
 }
 
 .side-bar__item__link:hover {

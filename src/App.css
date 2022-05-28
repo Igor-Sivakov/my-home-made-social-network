@@ -1,12 +1,14 @@
 
  .body{
   display: flex;
-  font-family: 'Times New Roman', Times, serif;
+  /* font-family: 'Times New Roman', Times, serif; */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   color:rgb(69, 69, 71);
 } 
 
+
+
 .app-wrapper {
-  background: lightblue;
   width: 1200px;
   margin: 0 auto;
   display: grid;
@@ -20,8 +22,13 @@
 }
 
 .app-wrapper__main {
+  margin: 0;
   grid-area: main-content;
   min-height: 800px;
 }
 
-
+.main-page__h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 500;
+}
