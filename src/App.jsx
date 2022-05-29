@@ -8,7 +8,7 @@ import Profile from './componets/Profile/Profile';
 import SideBar from './componets/SideBar/SideBar';
 import Settings from './componets/Settings/Settings';
 
-const App = () => {
+const App = (props) => {
   return (
     <BrowserRouter>
       <div className='body'>

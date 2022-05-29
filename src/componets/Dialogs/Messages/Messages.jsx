@@ -8,7 +8,7 @@ const Messages = (props) => {
           src='https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg'
           alt='message-avatar'
         />
-        <p className='message__item__userName'>{props.userName}</p>
+        <p className='message__item__userName'>{props.name}</p>
       </div>
       <div className='message__item__innerText'>
         <p className='message__item__text'>{props.message}</p>
