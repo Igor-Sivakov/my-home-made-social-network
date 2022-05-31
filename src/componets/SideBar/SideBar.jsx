@@ -1,10 +1,11 @@
 import { NavLink } from 'react-router-dom';
+import FriendsFrame from './FriendsFrame/FriendsFrame';
 import './SideBar.css';
 
-const SideBar = () => {
+const SideBar = (props) => {
   return (
-    <nav className='side-bar'>
-      <div className='side-bar__wrapper'>
+    <div className='side-bar'>
+      <nav className='side-bar__wrapper'>
         <div className='side-bar__item'>
           <NavLink to='/Profile' className='side-bar__item__link mod1'>
             Profile
@@ -30,8 +31,9 @@ const SideBar = () => {
             Settings
           </NavLink>
         </div>
-      </div>
-    </nav>
+      </nav>
+      <FriendsFrame state={props.state} />
+    </div>
   );
 };
 

@@ -1,7 +1,6 @@
 .side-bar {
   grid-area: nav;
   background-color: aliceblue;
-  display: flex;
 }
 
 .side-bar__item {

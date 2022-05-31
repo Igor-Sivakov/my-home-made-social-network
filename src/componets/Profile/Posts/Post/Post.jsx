@@ -5,15 +5,12 @@ const Post = (props) => {
     <div>
       <div className='comments-inner'>
         <div className='commetns__avatar'>
-          <img
-            src='https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg'
-            alt='avatar'
-          ></img>
+          <img src={props.state.avatar} alt='avatar'></img>
         </div>
-        <div className='comments__text'>{props.message}</div>
+        <div className='comments__text'>{props.state.message}</div>
       </div>
       <div className='like-wrapper'>
-        <span className='comments__like'>like {props.likeCounts}</span>
+        <span className='comments__like'>like {props.state.likeCounts}</span>
       </div>
     </div>
   );

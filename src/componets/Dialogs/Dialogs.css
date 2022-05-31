@@ -10,16 +10,24 @@
   display: flex;
 }
 
-.users-conteiner {
-  width: 30%;
+.usersList-conteiner {
+  width: 25%;
+  padding-right: 100px;
 }
 
-.users__inner ul{
-  margin: 30px 0px 0px 0px;
+.usersList__inner ul{
+  margin: 20px 0px 0px 0px;
 }
 
 .messages-conteiner {
   width: 70%;
   border-left: solid 3px rgb(238, 222, 222);
+ 
+}
+.messages-conteiner__small {
+  max-width: 600px;
+  display: flex;
+  flex-flow: column;
+  
 }
 

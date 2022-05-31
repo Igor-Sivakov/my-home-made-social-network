@@ -1,0 +1,16 @@
+.userItem__avatar {
+  display: inline-block;
+  text-align: center;
+}
+
+.userItem__avatar img{
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  border-radius: 50px;
+}
+
+.userItem__name {
+  font-size: 15px;
+  margin: 0px;
+}
