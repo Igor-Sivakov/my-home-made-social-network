@@ -16,6 +16,8 @@
   font-weight: 600;
   color:rgb(69, 69, 71);
   text-decoration: none;
+  transition-property: color;
+  transition-duration: 0.3s;
 }
 
 .mod1.active {

@@ -2,6 +2,7 @@ import DialogListItem from './DialogListItem/DialogListItem';
 import Messages from './Messages/Messages';
 import './Dialogs.css';
 import InvertMessage from './Messages/InvertMessage/InvertMessage';
+import MessageForm from './MessageForm/MessageForm';
 
 const Dialogs = (props) => {
   let dialogElements = props.state.dialogsData.map((dialog) => (
@@ -27,6 +28,7 @@ const Dialogs = (props) => {
           </div>
         </div>
         <div className='messages-conteiner'>
+          <MessageForm />
           <div className='messages-conteiner__small'>{messageElements}</div>
         </div>
       </div>

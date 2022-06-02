@@ -5,7 +5,7 @@ const UserInfo = () => {
     <div className='card'>
       <div className='card__avatar'>
         <img
-          src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOi6B1EjD4lkdZg4ClLhWTxjsfVQVRsdW1aw&usqp=CAU'
+          src='http://risovach.ru/upload/2017/05/mem/bender-s-plakatom_144841726_orig_.jpg'
           alt='avatar'
         />
       </div>

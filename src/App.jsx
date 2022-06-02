@@ -10,13 +10,17 @@ import Settings from './componets/Settings/Settings';
 
 const App = (props) => {
   return (
-    <BrowserRouter>
-      <div className='body'>
-        <div className='app-wrapper'>
+    <div className='body'>
+      <div className='app-wrapper'>
+        <BrowserRouter>
           <Header />
-          <SideBar state={props.state.sideBarPage} />
+          <SideBar state={props.state.sideBar} />
           <main className='app-wrapper__main'>
             <Routes>
+              <Route
+                path='/'
+                element={<Profile state={props.state.profilePage} />}
+              />
               <Route
                 path='/Profile'
                 element={<Profile state={props.state.profilePage} />}
@@ -30,9 +34,9 @@ const App = (props) => {
               <Route path='/Settings' element={<Settings />} />
             </Routes>
           </main>
-        </div>
+        </BrowserRouter>
       </div>
-    </BrowserRouter>
+    </div>
   );
 };
 
