@@ -12,7 +12,11 @@ const Profile = (props) => {
         <Wallpaper />
         <UserInfo />
       </div>
-      <PostForm />
+      <PostForm
+        addPost={props.addPost}
+        newPostText={props.state.newPostText}
+        updateNewPostText={props.updateNewPostText}
+      />
       {postElements}
     </div>
   );
