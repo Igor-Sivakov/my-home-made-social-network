@@ -2,32 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import state from './state/state';
 import App from './App';
-import {
-  addMessage,
-  addPost,
-  updateNewPostText,
-  updateNewMessageText,
-  subscribe,
-} from './state/state';
+import store from './state/state';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 export const rerenderTree = (state) => {
   root.render(
     <React.StrictMode>
-      <App
-        state={state}
-        addPost={addPost}
-        addMessage={addMessage}
-        updateNewPostText={updateNewPostText}
-        updateNewMessageText={updateNewMessageText}
-      />
+      <App state={store.getState()} dispatch={store.dispatch.bind(store)} />
     </React.StrictMode>
   );
 };
-rerenderTree(state);
+rerenderTree(store.getState());
 
-subscribe(rerenderTree);
+store.subscribe(rerenderTree);
 
 reportWebVitals();

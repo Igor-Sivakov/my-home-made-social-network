@@ -13,9 +13,8 @@ const Profile = (props) => {
         <UserInfo />
       </div>
       <PostForm
-        addPost={props.addPost}
         newPostText={props.state.newPostText}
-        updateNewPostText={props.updateNewPostText}
+        dispatch={props.dispatch}
       />
       {postElements}
     </div>

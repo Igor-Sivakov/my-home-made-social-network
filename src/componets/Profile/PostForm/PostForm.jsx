@@ -1,15 +1,17 @@
 import './PostForm.css';
 import React from 'react';
+import { addPostActionCreator } from '../../../state/state';
+import { updateNewPostTextActionCreator } from '../../../state/state';
 
 const PostForm = (props) => {
   let newPostElelment = React.createRef();
   let addPost = () => {
-    props.addPost();
+    props.dispatch(addPostActionCreator());
   };
 
   let onPostChange = () => {
     let text = newPostElelment.current.value;
-    props.updateNewPostText(text);
+    props.dispatch(updateNewPostTextActionCreator(text));
   };
   return (
     <div className='post-inner'>

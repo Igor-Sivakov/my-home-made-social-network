@@ -2,9 +2,8 @@
 .invertMessage__item {
   display: flex;
   margin-top: 10px;
-  margin-left: 0px;
- 
 }
+
 .invertMessage__decoration {
   margin-left: auto ;
 }
@@ -14,7 +13,7 @@
   border-radius: 10px;
   background-color: white;
   margin-top: 20px;
-  margin-right: 15px;
+  margin-right: 10px;
 }
 
 .invertMessage__item__text {

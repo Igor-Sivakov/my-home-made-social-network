@@ -11,6 +11,7 @@
 }
 
 .userItem__name {
+  width: 70px;
   font-size: 15px;
   margin: 0px;
 }

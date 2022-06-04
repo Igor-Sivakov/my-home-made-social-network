@@ -3,7 +3,6 @@ import Messages from './Messages/Messages';
 import './Dialogs.css';
 import InvertMessage from './Messages/InvertMessage/InvertMessage';
 import MessageForm from './MessageForm/MessageForm';
-import { addPost } from '../../state/state';
 
 const Dialogs = (props) => {
   let dialogElements = props.state.dialogsData.map((dialog) => (
@@ -31,8 +30,7 @@ const Dialogs = (props) => {
         <div className='messages-conteiner'>
           <MessageForm
             newMessageText={props.state.newMessageText}
-            addMessage={props.addMessage}
-            updateNewMessageText={props.updateNewMessageText}
+            dispatch={props.dispatch}
           />
           <div className='messages-conteiner__small'>{messageElements}</div>
         </div>

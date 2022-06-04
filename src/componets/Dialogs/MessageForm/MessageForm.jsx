@@ -1,16 +1,17 @@
 import './MessageForm.css';
 import React from 'react';
-
+import { addMessageActionCreator } from '../../../state/state';
+import { updateNewMessageTextActionCreator } from '../../../state/state';
 const MessageForm = (props) => {
   let newMessageElement = React.createRef();
 
   let sendMessage = () => {
-    props.addMessage();
+    props.dispatch(addMessageActionCreator());
   };
 
   let onMessageChange = () => {
     let messageText = newMessageElement.current.value;
-    props.updateNewMessageText(messageText);
+    props.dispatch(updateNewMessageTextActionCreator(messageText));
   };
 
   return (
