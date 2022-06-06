@@ -1,16 +1,15 @@
 import './PostForm.css';
 import React from 'react';
-import { addPostActionCreator } from '../../../state/state';
-import { updateNewPostTextActionCreator } from '../../../state/state';
+import { addPostActionCreator } from '../../../redux/profileReducer';
+import { updateNewPostTextActionCreator } from '../../../redux/profileReducer';
 
 const PostForm = (props) => {
-  let newPostElelment = React.createRef();
   let addPost = () => {
     props.dispatch(addPostActionCreator());
   };
 
-  let onPostChange = () => {
-    let text = newPostElelment.current.value;
+  let onPostChange = (event) => {
+    let text = event.target.value;
     props.dispatch(updateNewPostTextActionCreator(text));
   };
   return (
@@ -18,7 +17,6 @@ const PostForm = (props) => {
       <div className='post-inner__wrapper'>
         <div className='post__h3'>My post</div>
         <textarea
-          ref={newPostElelment}
           onChange={onPostChange}
           className='post__textArea'
           placeholder='your news...'

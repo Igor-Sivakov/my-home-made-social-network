@@ -1,17 +1,16 @@
 import './MessageForm.css';
 import React from 'react';
-import { addMessageActionCreator } from '../../../state/state';
-import { updateNewMessageTextActionCreator } from '../../../state/state';
-const MessageForm = (props) => {
-  let newMessageElement = React.createRef();
+import { sendNewMessageBodyActionCreator } from '../../../redux/dialogsReducer';
+import { updateMessageBodyActionCreator } from '../../../redux/dialogsReducer';
 
+const MessageForm = (props) => {
   let sendMessage = () => {
-    props.dispatch(addMessageActionCreator());
+    props.dispatch(sendNewMessageBodyActionCreator());
   };
 
-  let onMessageChange = () => {
-    let messageText = newMessageElement.current.value;
-    props.dispatch(updateNewMessageTextActionCreator(messageText));
+  let onMessageChange = (event) => {
+    let messageBody = event.target.value;
+    props.dispatch(updateMessageBodyActionCreator(messageBody));
   };
 
   return (
@@ -19,11 +18,10 @@ const MessageForm = (props) => {
       <div className='messageForm'>
         <div className='messageForm__inner'>
           <textarea
-            ref={newMessageElement}
             className='messageForm__textArea'
             placeholder='enter your mail...'
             onChange={onMessageChange}
-            value={props.newMessageText}
+            value={props.newMessageBody}
           />
           <button onClick={sendMessage} className='messageForm__button'>
             Send

@@ -1,11 +1,10 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+import dialogsReducer from './dialogsReducer';
+import profileReducer from './profileReducer';
+import sideBarReducer from './sideBarReducer';
 
 let store = {
   _callSubscriber() {
-    console.lof('10100101010');
+    console.log('10100101010');
   },
 
   _state: {
@@ -173,7 +172,7 @@ let store = {
           message: 'Coco Loko! Alo Alo...',
         },
       ],
-      newMessageText: '',
+      newMessageBody: '',
     },
     sideBar: {
       friendsData: [
@@ -255,68 +254,13 @@ let store = {
     this._callSubscriber = observer;
   },
 
-  _addPost() {
-    let randomId = Math.floor(Math.random() * 10) + 1;
-    let newPost = {
-      id: randomId,
-      name: 'userName',
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
-      message: this._state.profilePage.newPostText,
-      likeCounts: 0,
-    };
-    this._state.profilePage.postsData.push(newPost);
-    this._state.profilePage.newPostText = '';
-    this._callSubscriber(this._state);
-  },
-
-  _updateNewPostText(newText) {
-    this._state.profilePage.newPostText = newText;
-    this._callSubscriber(this._state);
-  },
-
-  _addMessage() {
-    let randomId = Math.floor(Math.random() * 10) + 1;
-    let newMessage = {
-      id: randomId,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
-      name: 'userName',
-      message: this._state.dialogsPage.newMessageText,
-    };
-    this._state.dialogsPage.messagesData.push(newMessage);
-    this._state.dialogsPage.newMessageText = '';
-    this._callSubscriber(this._state);
-  },
-
-  _updateNewMessageText(newMessage) {
-    this._state.dialogsPage.newMessageText = newMessage;
-    this._callSubscriber(this._state);
-  },
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      this._addPost();
-    } else if (action.type === UPDATE_NEW_POST_TEXT) {
-      this._updateNewPostText(action.newText);
-    }
-    if (action.type === ADD_MESSAGE) {
-      this._addMessage();
-    } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-      this._updateNewMessageText(action.newMessage);
-    }
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+    this._state.sideBar = sideBarReducer(this._state.sideBar, action);
+
+    this._callSubscriber(this._state);
   },
 };
-
-export const addPostActionCreator = () => ({ type: ADD_POST });
-
-export const updateNewPostTextActionCreator = (text) => ({
-  type: UPDATE_NEW_POST_TEXT,
-  newText: text,
-});
-
-export const addMessageActionCreator = () => ({ type: ADD_MESSAGE });
-
-export const updateNewMessageTextActionCreator = (messageText) => ({
-  type: UPDATE_NEW_MESSAGE_TEXT,
-  newMessage: messageText,
-});
 
 export default store;
