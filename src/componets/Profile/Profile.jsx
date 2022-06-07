@@ -5,7 +5,9 @@ import './Profile.css';
 import Wallpaper from './Wallpaper/Wallpaper';
 
 const Profile = (props) => {
-  let postElements = props.state.postsData.map((post) => <Post state={post} />);
+  let postElements = props.profilePage.postsData.map((post) => (
+    <Post state={post} />
+  ));
   return (
     <div className='profile-content'>
       <div>
@@ -13,9 +15,9 @@ const Profile = (props) => {
         <UserInfo />
       </div>
       <PostForm
-        state={props.state}
-        addPostActionCreator={props.addPostActionCreator}
-        updateNewPostTextActionCreator={props.updateNewPostTextActionCreator}
+        state={props.profilePage}
+        addPost={props.addPost}
+        updateNewPostText={props.updateNewPostText}
       />
       {postElements}
     </div>

@@ -17,18 +17,9 @@ const App = (props) => {
           <SideBarConainer store={props.store} />
           <main className='app-wrapper__main'>
             <Routes>
-              <Route
-                path='/'
-                element={<ProfileConteiner store={props.store} />}
-              />
-              <Route
-                path='/Profile'
-                element={<ProfileConteiner store={props.store} />}
-              />
-              <Route
-                path='/Dialogs'
-                element={<DialogsContainer store={props.store} />}
-              />
+              <Route path='/' element={<ProfileConteiner />} />
+              <Route path='/Profile' element={<ProfileConteiner />} />
+              <Route path='/Dialogs' element={<DialogsContainer />} />
               <Route path='/News' element={<News />} />
               <Route path='/Music' element={<Music />} />
               <Route path='/Settings' element={<Settings />} />

@@ -3,12 +3,12 @@ import React from 'react';
 
 const PostForm = (props) => {
   let onAddPost = () => {
-    props.addPostActionCreator();
+    props.addPost();
   };
 
   let onPostChange = (event) => {
     let text = event.target.value;
-    props.updateNewPostTextActionCreator(text);
+    props.updateNewPostText(text);
   };
   return (
     <div className='post-inner'>

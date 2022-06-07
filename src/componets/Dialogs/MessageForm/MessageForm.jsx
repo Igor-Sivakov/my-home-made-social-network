@@ -3,12 +3,12 @@ import React from 'react';
 
 const MessageForm = (props) => {
   let sendMessage = () => {
-    props.sendNewMessageBodyActionCreator();
+    props.sendNewMessageBody();
   };
 
   let onMessageChange = (event) => {
     let messageBody = event.target.value;
-    props.updateMessageBodyActionCreator(messageBody);
+    props.updateMessageBody(messageBody);
   };
 
   return (

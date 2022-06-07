@@ -32,7 +32,7 @@ const SideBar = (props) => {
           </NavLink>
         </div>
       </nav>
-      <FriendsFrame state={props.state} />
+      <FriendsFrame state={props.sideBar} />
     </div>
   );
 };

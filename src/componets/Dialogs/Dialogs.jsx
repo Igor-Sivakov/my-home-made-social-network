@@ -5,11 +5,11 @@ import InvertMessage from './Messages/InvertMessage/InvertMessage';
 import MessageForm from './MessageForm/MessageForm';
 
 const Dialogs = (props) => {
-  let dialogElements = props.state.dialogsData.map((dialog) => (
+  let dialogElements = props.dialogsPage.dialogsData.map((dialog) => (
     <DialogListItem state={dialog} />
   ));
 
-  let messageElements = props.state.messagesData.map((mail) => {
+  let messageElements = props.dialogsPage.messagesData.map((mail) => {
     let j = [2, 5, 7, 3, 9];
     for (let i = 0; i < j.length; i++) {
       if (j[i] === mail.id) {
@@ -29,13 +29,9 @@ const Dialogs = (props) => {
         </div>
         <div className='messages-conteiner'>
           <MessageForm
-            state={props.state}
-            sendNewMessageBodyActionCreator={
-              props.sendNewMessageBodyActionCreator
-            }
-            updateMessageBodyActionCreator={
-              props.updateMessageBodyActionCreator
-            }
+            state={props.dialogsPage}
+            sendNewMessageBody={props.sendNewMessageBody}
+            updateMessageBody={props.updateMessageBody}
           />
           <div className='messages-conteiner__small'>{messageElements}</div>
         </div>
