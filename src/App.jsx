@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Dialogs from './componets/Dialogs/Dialogs';
 import Header from './componets/Header/Header';
 import Music from './componets/Music/Music';
 import News from './componets/News/News';
-import Profile from './componets/Profile/Profile';
-import SideBar from './componets/SideBar/SideBar';
 import Settings from './componets/Settings/Settings';
+import ProfileConteiner from './componets/Profile/ProfileContainer';
+import DialogsContainer from './componets/Dialogs/DialogsContainer';
+import SideBarConainer from './componets/SideBar/SideBarContainer';
 
 const App = (props) => {
   return (
@@ -14,35 +14,20 @@ const App = (props) => {
       <div className='app-wrapper'>
         <BrowserRouter>
           <Header />
-          <SideBar state={props.state.sideBar} />
+          <SideBarConainer store={props.store} />
           <main className='app-wrapper__main'>
             <Routes>
               <Route
                 path='/'
-                element={
-                  <Profile
-                    state={props.state.profilePage}
-                    dispatch={props.dispatch}
-                  />
-                }
+                element={<ProfileConteiner store={props.store} />}
               />
               <Route
                 path='/Profile'
-                element={
-                  <Profile
-                    state={props.state.profilePage}
-                    dispatch={props.dispatch}
-                  />
-                }
+                element={<ProfileConteiner store={props.store} />}
               />
               <Route
                 path='/Dialogs'
-                element={
-                  <Dialogs
-                    state={props.state.dialogsPage}
-                    dispatch={props.dispatch}
-                  />
-                }
+                element={<DialogsContainer store={props.store} />}
               />
               <Route path='/News' element={<News />} />
               <Route path='/Music' element={<Music />} />

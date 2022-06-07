@@ -13,8 +13,9 @@ const Profile = (props) => {
         <UserInfo />
       </div>
       <PostForm
-        newPostText={props.state.newPostText}
-        dispatch={props.dispatch}
+        state={props.state}
+        addPostActionCreator={props.addPostActionCreator}
+        updateNewPostTextActionCreator={props.updateNewPostTextActionCreator}
       />
       {postElements}
     </div>

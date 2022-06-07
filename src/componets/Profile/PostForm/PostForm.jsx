@@ -1,16 +1,14 @@
 import './PostForm.css';
 import React from 'react';
-import { addPostActionCreator } from '../../../redux/profileReducer';
-import { updateNewPostTextActionCreator } from '../../../redux/profileReducer';
 
 const PostForm = (props) => {
-  let addPost = () => {
-    props.dispatch(addPostActionCreator());
+  let onAddPost = () => {
+    props.addPostActionCreator();
   };
 
   let onPostChange = (event) => {
     let text = event.target.value;
-    props.dispatch(updateNewPostTextActionCreator(text));
+    props.updateNewPostTextActionCreator(text);
   };
   return (
     <div className='post-inner'>
@@ -20,9 +18,9 @@ const PostForm = (props) => {
           onChange={onPostChange}
           className='post__textArea'
           placeholder='your news...'
-          value={props.newPostText}
+          value={props.state.newPostText}
         />
-        <button onClick={addPost} className='post__button'>
+        <button onClick={onAddPost} className='post__button'>
           Send
         </button>
       </div>

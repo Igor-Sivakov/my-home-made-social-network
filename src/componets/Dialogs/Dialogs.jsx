@@ -29,8 +29,13 @@ const Dialogs = (props) => {
         </div>
         <div className='messages-conteiner'>
           <MessageForm
-            newMessageBody={props.state.newMessageBody}
-            dispatch={props.dispatch}
+            state={props.state}
+            sendNewMessageBodyActionCreator={
+              props.sendNewMessageBodyActionCreator
+            }
+            updateMessageBodyActionCreator={
+              props.updateMessageBodyActionCreator
+            }
           />
           <div className='messages-conteiner__small'>{messageElements}</div>
         </div>

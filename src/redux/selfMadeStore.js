@@ -2,7 +2,7 @@ import dialogsReducer from './dialogsReducer';
 import profileReducer from './profileReducer';
 import sideBarReducer from './sideBarReducer';
 
-let store = {
+let selfMadeStore = {
   _callSubscriber() {
     console.log('10100101010');
   },
@@ -263,4 +263,4 @@ let store = {
   },
 };
 
-export default store;
+export default selfMadeStore;
