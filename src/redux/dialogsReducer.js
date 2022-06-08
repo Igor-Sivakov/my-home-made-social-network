@@ -113,28 +113,29 @@ let initialState = {
 };
 
 const dialogsReducer = (state = initialState, action) => {
+  debugger;
   switch (action.type) {
     case SEND_NEW_MESSAGE_BODY:
-      let randomId = Math.floor(Math.random() * 10) + 1;
+      let randomId = Math.floor(Math.random() * 10) + 8;
       let messageBody = {
         id: randomId,
         avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
-        name: 'userName',
+        name: 'Vitaliy',
         message: state.newMessageBody,
       };
-      let stateCopy = { ...state };
-      stateCopy.newMessageBody = [...state.newMessageBody];
-      stateCopy.messagesData.push(messageBody);
-      stateCopy.newMessageBody = '';
 
-      return stateCopy;
+      return {
+        ...state,
+        newMessageBody: '',
+        messagesData: [...state.messagesData, messageBody],
+      };
 
-    case UPDATE_MESSAGE_BODY: {
-      let stateCopy = { ...state };
-      stateCopy.newMessageBody = action.newMessage;
+    case UPDATE_MESSAGE_BODY:
+      return {
+        ...state,
+        newMessageBody: action.newMessage,
+      };
 
-      return stateCopy;
-    }
     default:
       return state;
   }

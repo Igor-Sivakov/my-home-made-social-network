@@ -6,7 +6,7 @@ import Wallpaper from './Wallpaper/Wallpaper';
 
 const Profile = (props) => {
   let postElements = props.profilePage.postsData.map((post) => (
-    <Post state={post} />
+    <Post state={post} key={post.id} />
   ));
   return (
     <div className='profile-content'>
