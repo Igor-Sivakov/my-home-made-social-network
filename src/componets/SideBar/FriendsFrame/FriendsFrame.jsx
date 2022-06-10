@@ -9,9 +9,9 @@ const FriendsFrame = (props) => {
   });
 
   return (
-    <div className='fiendsFarame'>
+    <div className='fiendsFrame'>
       <h2 className='main-page__h2'>FRIENDS</h2>
-      <div className='fiendsFarame__wrapper'>{sideBarElements}</div>
+      <div className='fiendsFrame__wrapper'>{sideBarElements}</div>
     </div>
   );
 };

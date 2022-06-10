@@ -7,6 +7,7 @@ import Settings from './componets/Settings/Settings';
 import ProfileConteiner from './componets/Profile/ProfileContainer';
 import DialogsContainer from './componets/Dialogs/DialogsContainer';
 import SideBarConainer from './componets/SideBar/SideBarContainer';
+import FindFriendsContainer from './componets/FindFrieds/FindFriendsContainer';
 
 const App = (props) => {
   return (
@@ -22,6 +23,7 @@ const App = (props) => {
               <Route path='/Dialogs' element={<DialogsContainer />} />
               <Route path='/News' element={<News />} />
               <Route path='/Music' element={<Music />} />
+              <Route path='/FindFriends' element={<FindFriendsContainer />} />
               <Route path='/Settings' element={<Settings />} />
             </Routes>
           </main>

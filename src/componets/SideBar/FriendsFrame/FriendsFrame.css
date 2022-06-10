@@ -1,14 +1,14 @@
-.fiendsFarame {
+.fiendsFrame {
  margin-top: 65px;
  display:inline-table;
  
 }
 
-.fiendsFarame__wrapper {  
+.fiendsFrame__wrapper {  
   text-align:center;
 }
 
-.fiendsFarame h2 {
+.fiendsFrame h2 {
   margin: 0px 0px 0px 15px;
 }
 

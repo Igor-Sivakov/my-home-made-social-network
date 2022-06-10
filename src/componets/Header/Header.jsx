@@ -5,7 +5,7 @@ const Header = () => {
     <header className='header'>
       <div className='header-main'>
         <div className='header-main__logo'>
-          <img src='https://www.blast.hk/attachments/74776/' alt='logo' />
+          <img src='#' alt='logo' />
         </div>
       </div>
     </header>
@@ -13,3 +13,5 @@ const Header = () => {
 };
 
 export default Header;
+
+// https://www.blast.hk/attachments/74776/

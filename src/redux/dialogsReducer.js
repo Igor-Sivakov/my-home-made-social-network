@@ -113,7 +113,6 @@ let initialState = {
 };
 
 const dialogsReducer = (state = initialState, action) => {
-  debugger;
   switch (action.type) {
     case SEND_NEW_MESSAGE_BODY:
       let randomId = Math.floor(Math.random() * 10) + 8;
