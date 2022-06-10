@@ -1,3 +1,5 @@
+import userAvatar from '../img/userAvatar.jpeg';
+
 const SEND_NEW_MESSAGE_BODY = 'SEND_NEW_MESSAGE_BODY';
 const UPDATE_MESSAGE_BODY = 'UPDATE_MESSAGE_BODY';
 
@@ -5,106 +7,106 @@ let initialState = {
   dialogsData: [
     {
       id: 1,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Dima',
     },
     {
       id: 2,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Alina',
     },
     {
       id: 3,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Ben',
     },
     {
       id: 4,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Vitaliy',
     },
     {
       id: 5,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Olga',
     },
     {
       id: 6,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Kate',
     },
     {
       id: 7,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Caren',
     },
     {
       id: 8,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Kostya',
     },
     {
       id: 9,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Inna',
     },
     {
       id: 10,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Nick',
     },
     {
       id: 11,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Fiona',
     },
   ],
   messagesData: [
     {
       id: 1,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Dima',
       message: 'Hey,how are you?',
     },
     {
       id: 2,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Alina',
       message: 'I am fine.Are you ready to fun?',
     },
     {
       id: 3,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Ben',
       message: 'Yes I am!',
     },
     {
       id: 4,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Vitaliy',
       message: 'Coco Loko! Alo Alo...',
     },
     {
       id: 5,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Dima',
       message: 'Hey,how are you?',
     },
     {
       id: 6,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Alina',
       message: 'I am fine.Are you ready to fun?',
     },
     {
       id: 7,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Ben',
       message: 'Yes I am!',
     },
     {
       id: 8,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Vitaliy',
       message: 'Coco Loko! Alo Alo...',
     },

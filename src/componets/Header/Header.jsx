@@ -1,11 +1,12 @@
 import './Header.css';
+import headerLogo from '../../img/headerLogo.png';
 
 const Header = () => {
   return (
     <header className='header'>
       <div className='header-main'>
         <div className='header-main__logo'>
-          <img src='#' alt='logo' />
+          <img src={headerLogo} alt='logo' />
         </div>
       </div>
     </header>
@@ -13,5 +14,3 @@ const Header = () => {
 };
 
 export default Header;
-
-// https://www.blast.hk/attachments/74776/

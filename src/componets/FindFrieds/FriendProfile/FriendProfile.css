@@ -8,8 +8,8 @@ text-align: center;
 }
 
 .friends-profile__item__img {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   background-size: cover;
   border-radius: 50px;
 }

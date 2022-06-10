@@ -1,58 +1,60 @@
+import userAvatar from '../img/userAvatar.jpeg';
+
 let initialState = {
   friendsData: [
     {
       id: 1,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Dima',
     },
     {
       id: 2,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Alina',
     },
     {
       id: 3,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Ben',
     },
     {
       id: 4,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Vitaliy',
     },
     {
       id: 5,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Olga',
     },
     {
       id: 6,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Kate',
     },
     {
       id: 7,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Caren',
     },
     {
       id: 8,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Kostya',
     },
     {
       id: 9,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Inna',
     },
     {
       id: 10,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Nick',
     },
     {
       id: 11,
-      avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+      avatar: userAvatar,
       name: 'Fiona',
     },
   ],
