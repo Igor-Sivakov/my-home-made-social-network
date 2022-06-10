@@ -13,7 +13,7 @@ const PostForm = (props) => {
   return (
     <div className='post-inner'>
       <div className='post-inner__wrapper'>
-        <div className='post__h3'>My post</div>
+        <div className='post__h3'>Posts</div>
         <textarea
           onChange={onPostChange}
           className='post__textArea'

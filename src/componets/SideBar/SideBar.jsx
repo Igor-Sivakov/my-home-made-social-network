@@ -7,50 +7,32 @@ const SideBar = (props) => {
     <div className='side-bar'>
       <nav className='side-bar__wrapper'>
         <div className='side-bar__item'>
-          <NavLink
-            to='/Profile'
-            className='side-bar__item__link side-bar__item__link_mod1'
-          >
+          <NavLink to='/Profile' className='side-bar__item__link'>
             Profile
           </NavLink>
         </div>
         <div className='side-bar__item'>
-          <NavLink
-            to='/Dialogs'
-            className='side-bar__item__link side-bar__item__link_mod2'
-          >
+          <NavLink to='/Dialogs' className='side-bar__item__link'>
             Messages
           </NavLink>
         </div>
         <div className='side-bar__item'>
-          <NavLink
-            to='/News'
-            className='side-bar__item__link side-bar__item__link_mod3'
-          >
+          <NavLink to='/News' className='side-bar__item__link'>
             News
           </NavLink>
         </div>
         <div className='side-bar__item'>
-          <NavLink
-            to='/Music'
-            className='side-bar__item__link side-bar__item__link_mod4'
-          >
+          <NavLink to='/Music' className='side-bar__item__link'>
             Music
           </NavLink>
         </div>
         <div className='side-bar__item'>
-          <NavLink
-            to='/FindFriends'
-            className='side-bar__item__link side-bar__item__link_mod5'
-          >
+          <NavLink to='/FindFriends' className='side-bar__item__link'>
             Find friends
           </NavLink>
         </div>
         <div className='side-bar__item'>
-          <NavLink
-            to='/Settings'
-            className='side-bar__item__link side-bar__item__link_mod6'
-          >
+          <NavLink to='/Settings' className='side-bar__item__link'>
             Settings
           </NavLink>
         </div>

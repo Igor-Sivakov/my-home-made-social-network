@@ -4,12 +4,12 @@
 }
 
 .side-bar__item {
- margin: 20px 10px 0px 20px;
+ margin: 15px 10px 0px 20px;
 }
 
 .side-bar__item__link {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 500;
   color:rgb(69, 69, 71);
   text-decoration: none;
   transition-property: color;
@@ -20,23 +20,8 @@
   margin-top: 40px;
 } 
 
-.side-bar__item__link_mod1.active {
-  color: rgb(27, 208, 211);
-}
-.side-bar__item__link_mod2.active {
-  color: rgb(142, 224, 142);
-}
-.side-bar__item__link_mod3.active {
+.side-bar__item__link.active {
   color: rgb(255, 221, 28);
-}
-.side-bar__item__link_mod4.active {
-  color: hotpink;
-}
-.side-bar__item__link_mod5.active {
-  color:rgb(253, 117, 117);
-}
-.side-bar__item__link_mod6.active {
-  color:mediumpurple;
 }
 
 .side-bar__item__link:hover {
