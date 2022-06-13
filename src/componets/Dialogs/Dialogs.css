@@ -5,6 +5,7 @@
 
 .dialogs-wrapper {
   display: flex;
+  min-height: 100%;
 }
 
 .usersList-conteiner {
@@ -18,12 +19,15 @@
 
 .messages-conteiner {
   width: 70%;
+  min-height: 100%;
   border-left: solid 3px rgb(238, 222, 222);
- 
+  position: relative;
+  padding: 70px 0px 500px 0px;
 }
 .messages-conteiner__small {
   max-width: 600px;
   display: flex;
   flex-flow: column;
 }
+
 

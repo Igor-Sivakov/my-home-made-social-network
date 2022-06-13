@@ -1,25 +1,22 @@
 
-.conteiner__forStickyForm {
-  max-width: 655px;
-  height: 70px;
-  background-color:burlywood;
-  position: relative;
-}
 
 .messageForm__wrapper {
   width: 100%;
-  background-color:antiquewhite;
-  display: flex;
+  height: 100%;
+  background-color: transparent;
   position: absolute;
+ 
 }
 
 .messageForm__inner {
   width: 100%;
   height: 50px; 
-  top: 20px;
+  margin-top: -60px;
   position: sticky;
+  top: 20px;
   display: flex;
   background-color: transparent;
+ 
 }
 
 .messageForm__textArea {
