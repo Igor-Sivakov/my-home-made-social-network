@@ -28,12 +28,12 @@ const Dialogs = (props) => {
           </div>
         </div>
         <div className='messages-conteiner'>
+          <div className='messages-conteiner__small'>{messageElements}</div>
           <MessageForm
             state={props.dialogsPage}
             sendNewMessageBody={props.sendNewMessageBody}
             updateMessageBody={props.updateMessageBody}
           />
-          <div className='messages-conteiner__small'>{messageElements}</div>
         </div>
       </div>
     </div>

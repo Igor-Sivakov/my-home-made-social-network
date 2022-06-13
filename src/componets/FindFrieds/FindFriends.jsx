@@ -9,6 +9,10 @@ const FindFriends = () => {
       <FriendProfile />
       <FriendProfile />
       <FriendProfile />
+      <FriendProfile />
+      <div className='find-friends__pageBtn__inner'>
+        <button className='find-friends__pageBtn btn'>Show more</button>
+      </div>
     </div>
   );
 };

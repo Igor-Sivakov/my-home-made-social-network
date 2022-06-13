@@ -13,7 +13,7 @@ const MessageForm = (props) => {
 
   return (
     <div className='conteiner__forStickyForm'>
-      <div className='messageForm'>
+      <div className='messageForm__wrapper'>
         <div className='messageForm__inner'>
           <textarea
             className='messageForm__textArea'
@@ -21,7 +21,7 @@ const MessageForm = (props) => {
             onChange={onMessageChange}
             value={props.state.newMessageBody}
           />
-          <button onClick={sendMessage} className='messageForm__button'>
+          <button onClick={sendMessage} className='messageForm__btn btn'>
             Send
           </button>
         </div>

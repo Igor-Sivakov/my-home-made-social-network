@@ -27,25 +27,18 @@
   padding-top: 10px;
 }
 
-.post__button {
+.post__btn {
   position: sticky;
   left: 100%;
-  font-family: inherit;
-  font-size: 16px;
-  font-weight: 600;
-  color:rgb(106, 106, 108);
-  background-color:rgb(209, 243, 108);
-  border: none;
-  border-radius: 5px;
   width: 120px;
   height: 30px;
+  font-size: 16px;
+  border-radius: 5px;
   margin-top: 10px;
   margin-right: -20px;
-  transition-property: background-color color;
-  transition-duration: 0.3s;
 }
 
-.post__button:hover {
+.post__btn:hover {
  color: aliceblue;
  background-color: gold;
 }

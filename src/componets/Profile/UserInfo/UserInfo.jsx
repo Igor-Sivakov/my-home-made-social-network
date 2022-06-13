@@ -1,13 +1,11 @@
 import './UserInfo.css';
+import userInfoAvatar from './../../../img/userInfoAvatar.jpeg';
 
 const UserInfo = () => {
   return (
     <div className='card'>
       <div className='card__avatar'>
-        <img
-          src='http://risovach.ru/upload/2017/05/mem/bender-s-plakatom_144841726_orig_.jpg'
-          alt='avatar'
-        />
+        <img src={userInfoAvatar} alt='avatar' />
       </div>
       <div className='card__info'>
         <h3 className='card__h3'>Igor Sivakov</h3>

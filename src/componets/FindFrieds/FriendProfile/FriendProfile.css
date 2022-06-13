@@ -1,8 +1,7 @@
 
 .friend-profile {
   display: flex; 
-  margin: 20px 0px 30px 80px;
-   
+  margin: 0px 0px 0px 80px;
 }
 
 /* avatar/btn */
@@ -14,24 +13,17 @@
 }
 
 .friends-profile__item__img {
-  width: 65px;
-  height: 65px;
+  width: 45px;
+  height: 45px;
   background-size: cover;
   border-radius: 50px;
 }
 
 .friends-profile__item__btn {
-  width: 100px;
-  height: 25px;
-  font-family: inherit;
-  font-size: 16px;
-  font-weight: 600;
-  color:rgb(106, 106, 108);
-  background-color:rgb(209, 243, 108);
-  border: none;
+  width: 80px;
+  height: 20px;
+  font-size: 14px;
   border-radius: 5px;
-  transition-property: background-color color;
-  transition-duration: 0.3s;
 }
 .friends-profile__item__btn:hover {
   color: aliceblue;
@@ -65,13 +57,14 @@
 }
 
 .friends-profile__info__leftSide__name {
-  margin: 10px 0px 0px 0px;
-  font-size: 22px;
+  margin: 5px 0px 0px 0px;
+  font-size: 20px;
   font-weight: 600;
 }
 
 .friends-profile__info__leftSide__status {
-  margin: 20px 0px 5px 0px;
+  font-size: 14px;
+  margin: 10px 0px 5px 0px;
 }
 
 .friends-profile__info__rightSide__country {

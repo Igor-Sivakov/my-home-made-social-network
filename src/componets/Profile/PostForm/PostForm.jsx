@@ -20,7 +20,7 @@ const PostForm = (props) => {
           placeholder='your news...'
           value={props.state.newPostText}
         />
-        <button onClick={onAddPost} className='post__button'>
+        <button onClick={onAddPost} className='post__btn btn'>
           Send
         </button>
       </div>
