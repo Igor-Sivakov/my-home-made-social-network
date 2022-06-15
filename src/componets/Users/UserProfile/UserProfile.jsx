@@ -1,33 +1,40 @@
-import './FriendProfile.css';
+import './UserProfile.css';
 import userAvatar from './../../../img/userAvatar.jpeg';
 
-const FriendProfile = () => {
+const UserProfile = (props) => {
+  debugger;
   return (
     <div className='friend-profile'>
       <div className='friends-profile__item'>
         <img
-          src={userAvatar}
+          src={props.state.avatar}
           className='friends-profile__item__img'
           alt='avatar'
         />
-        <button className='friends-profile__item__btn btn'>Follow</button>
+        <button className='friends-profile__item__btn btn'>
+          {props.state.subscribe}
+        </button>
       </div>
       <div className='friends-profile__info'>
         <div className='friends-profile__info__leftSide'>
-          <p className='friends-profile__info__leftSide__name'>Mark Presly</p>
+          <p className='friends-profile__info__leftSide__name'>
+            {props.state.name + ' ' + props.state.familyName}
+          </p>
           <p className='friends-profile__info__leftSide__status'>
-            Lorem ipsum dolor sit Lorem ipsum dolor sit amet ,
+            {props.state.status}
           </p>
         </div>
         <div className='friends-profile__info__rightSide'>
           <p className='friends-profile__info__rightSide__country'>
-            United Kingdom
+            {props.state.country}
           </p>
-          <p className='friends-profile__info__rightSide__town'>London</p>
+          <p className='friends-profile__info__rightSide__town'>
+            {props.state.city}
+          </p>
         </div>
       </div>
     </div>
   );
 };
 
-export default FriendProfile;
+export default UserProfile;

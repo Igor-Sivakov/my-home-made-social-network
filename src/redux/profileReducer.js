@@ -43,7 +43,7 @@ const profileReducer = (state = initialState, action) => {
       let newPost = {
         id: randomId,
         name: 'userName',
-        avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
+        avatar: userAvatar,
         message: state.newPostText,
         likeCounts: 0,
       };
