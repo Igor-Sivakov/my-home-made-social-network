@@ -3,7 +3,12 @@ import UserProfile from './UserProfile/UserProfile';
 
 const Users = (props) => {
   let userProfileElement = props.users.usersData.map((profile) => (
-    <UserProfile state={profile} key={profile.id} />
+    <UserProfile
+      user={profile}
+      key={profile.id}
+      follow={props.follow}
+      unfollow={props.unfollow}
+    />
   ));
   return (
     <div className='find-friends'>

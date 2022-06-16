@@ -1,5 +1,9 @@
 import userAvatar from '../img/userAvatar.jpeg';
 
+const FOLLOW = 'FOLLOW';
+const UNFOLLOW = 'UNFOLLOW';
+const SET_USERS = 'SET_USERS';
+
 let initialState = {
   usersData: [
     {
@@ -10,7 +14,7 @@ let initialState = {
       status: 'I am a good boy first of all...',
       country: 'France',
       city: 'Paris',
-      subscribe: 'follow',
+      followed: false,
     },
     {
       id: 2,
@@ -20,7 +24,7 @@ let initialState = {
       status: 'I am a good boy first of all...',
       country: 'United States',
       city: 'New-York',
-      subscribe: 'unfollow',
+      followed: true,
     },
     {
       id: 3,
@@ -30,7 +34,7 @@ let initialState = {
       status: 'I am a good boy first of all...',
       country: 'Italy',
       city: 'Rom',
-      subscribe: 'follow',
+      followed: false,
     },
     {
       id: 4,
@@ -40,7 +44,7 @@ let initialState = {
       status: 'I am a good boy first of all...',
       country: 'Canada',
       city: 'Ottawa',
-      subscribe: 'unfollow',
+      followed: false,
     },
     {
       id: 5,
@@ -50,13 +54,59 @@ let initialState = {
       status: 'I am a good boy first of all...',
       country: 'United States',
       city: 'Detroid',
-      subscribe: 'follow',
+      followed: true,
     },
   ],
 };
 
 const usersReduser = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    case FOLLOW:
+      return {
+        ...state,
+        usersData: state.usersData.map((user) => {
+          if (user.id === action.userId) {
+            return { ...user, followed: true };
+          }
+          return user;
+        }),
+      };
+
+    case UNFOLLOW:
+      return {
+        ...state,
+        usersData: state.usersData.map((user) => {
+          if (user.id === action.userId) {
+            return { ...user, followed: false };
+          }
+          return user;
+        }),
+      };
+
+    case SET_USERS:
+      return {
+        ...state,
+        usersData: [...state.usersData, ...action.users],
+      };
+
+    default:
+      return state;
+  }
 };
+
+export const followAC = (userId) => ({
+  type: FOLLOW,
+  userId,
+});
+
+export const unfollowAC = (userId) => ({
+  type: UNFOLLOW,
+  userId,
+});
+
+export const setUsersAC = (users) => ({
+  type: SET_USERS,
+  users,
+});
 
 export default usersReduser;
