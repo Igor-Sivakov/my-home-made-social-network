@@ -1,11 +1,12 @@
 import './UserProfile.css';
+import userAvatar from '../../../img/userAvatar.jpeg';
 
 const UserProfile = (props) => {
   return (
     <div className='friends-profile__wrapper'>
       <div className='friends-profile__item'>
         <img
-          src={props.user.avatar}
+          src={props.user.photos}
           className='friends-profile__item__img'
           alt='avatar'
         />
@@ -28,19 +29,15 @@ const UserProfile = (props) => {
       <div className='friends-profile__info'>
         <div className='friends-profile__info__leftSide'>
           <p className='friends-profile__info__leftSide__name'>
-            {props.user.name + ' ' + props.user.familyName}
+            {props.user.name}
           </p>
           <p className='friends-profile__info__leftSide__status'>
-            {props.user.status}
+            Hi guys! Tomorrow I'll be boarding, who's with me?
           </p>
         </div>
         <div className='friends-profile__info__rightSide'>
-          <p className='friends-profile__info__rightSide__country'>
-            {props.user.country}
-          </p>
-          <p className='friends-profile__info__rightSide__town'>
-            {props.user.city}
-          </p>
+          <p className='friends-profile__info__rightSide__country'>Ukrain</p>
+          <p className='friends-profile__info__rightSide__town'>Kiev</p>
         </div>
       </div>
     </div>
