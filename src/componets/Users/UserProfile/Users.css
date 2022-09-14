@@ -1,0 +1,55 @@
+.find-friends {
+  height: 100%;
+}
+
+.find-friends h2 {
+  margin:0px 0px 20px 5px;
+}
+
+.find-friends__pageBtn__inner {
+  text-align: center;
+  position: relative;
+  top: 10px;
+ 
+}
+
+.find-friends__pageBtn {
+  width: 260px;
+  height: 25px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.find-friends__pageBtn:hover {
+ color: aliceblue;
+ background-color: gold;
+}
+
+.find-friends__pagination { 
+  min-width: 200px;
+  font-size: 15px;
+  display: flex; 
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.find-friends__pagination__page {
+  margin: 0px 5px 0px 5px;
+}
+
+.selected_page {
+  margin: -3px 5px 0px 5px; 
+  padding: 0px 15px 0px 15px;
+  font-size: 18px;
+  text-align: right;
+  border-radius: 50px;
+  background-color:rgb(209, 243, 108);
+  color:rgb(106, 106, 108);
+  transition-property: background-color color;
+  transition-duration: 0.3s;
+}
+
+.selected_page:hover {
+  background-color: gold;
+  color: aliceblue;
+}

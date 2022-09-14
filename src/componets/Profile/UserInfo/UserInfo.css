@@ -18,16 +18,16 @@
   border-radius: 50%;
 }
 
-.card__info {
+.card__wrapper {
   margin-left: 30px;
   line-height: 50%;
 }
 
-.card__h3 {
+.card__userName__h3 {
   font-size: 22px;
   margin-bottom: 40px;
 }
 
-.card__p {
+.card__info__p {
   font-size: 16px;
 }

@@ -1,15 +1,22 @@
 import './UserProfile.css';
 import userAvatar from '../../../img/userAvatar.jpeg';
+import { NavLink } from 'react-router-dom';
 
 const UserProfile = (props) => {
   return (
     <div className='friends-profile__wrapper'>
       <div className='friends-profile__item'>
-        <img
-          src={props.user.photos}
-          className='friends-profile__item__img'
-          alt='avatar'
-        />
+        <NavLink to={'/Profile/'}>
+          <img
+            src={
+              props.user.photos.small != null
+                ? props.user.photos.small
+                : userAvatar
+            }
+            className='friends-profile__item__img'
+            alt='avatar'
+          />
+        </NavLink>
         {props.user.followed ? (
           <button
             onClick={() => props.unfollow(props.user.id)}
@@ -32,7 +39,7 @@ const UserProfile = (props) => {
             {props.user.name}
           </p>
           <p className='friends-profile__info__leftSide__status'>
-            Hi guys! Tomorrow I'll be boarding, who's with me?
+            'Hi guys! Tomorrow I will be boarding, who is with me?'
           </p>
         </div>
         <div className='friends-profile__info__rightSide'>

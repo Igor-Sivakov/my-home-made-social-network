@@ -12,7 +12,7 @@ const Profile = (props) => {
     <div className='profile-content'>
       <div>
         <Wallpaper />
-        <UserInfo />
+        <UserInfo profile={props.profilePage.profile} />
       </div>
       <PostForm
         state={props.profilePage}

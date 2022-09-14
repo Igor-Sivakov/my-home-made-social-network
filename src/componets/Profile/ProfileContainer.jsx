@@ -1,6 +1,30 @@
 import Profile from './Profile';
-import { addPostAC, updateNewPostTextAC } from '../../redux/profileReducer';
+import {
+  addPost,
+  updateNewPostText,
+  setUserProfile,
+} from '../../redux/profileReducer';
 import { connect } from 'react-redux';
+import React from 'react';
+import * as axios from 'axios';
+
+class ProfileConteiner extends React.Component {
+  componentDidMount() {
+    axios
+      .get(`https://social-network.samuraijs.com/api/1.0/profile/2`)
+      .then((response) => {
+        this.props.setUserProfile(response.data);
+      });
+  }
+
+  render() {
+    return (
+      <>
+        <Profile {...this.props} />
+      </>
+    );
+  }
+}
 
 let mapStateToProps = (state) => {
   return {
@@ -8,18 +32,8 @@ let mapStateToProps = (state) => {
   };
 };
 
-let mapDispatchToProps = (dispatch) => {
-  return {
-    addPost: () => {
-      dispatch(addPostAC());
-    },
-
-    updateNewPostText: (text) => {
-      dispatch(updateNewPostTextAC(text));
-    },
-  };
-};
-
-let ProfileConteiner = connect(mapStateToProps, mapDispatchToProps)(Profile);
-
-export default ProfileConteiner;
+export default connect(mapStateToProps, {
+  addPost,
+  updateNewPostText,
+  setUserProfile,
+})(ProfileConteiner);

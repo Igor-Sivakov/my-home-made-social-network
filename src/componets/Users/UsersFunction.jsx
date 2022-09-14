@@ -2,7 +2,7 @@ import './Users.css';
 import UserProfile from './UserProfile/UserProfile';
 import * as axios from 'axios';
 
-const Users = (props) => {
+const Usersssss = (props) => {
   /*  if (props.users.usersData.length === 5) {
     axios
       .get('https://social-network.samuraijs.com/api/1.0/users')
@@ -31,4 +31,4 @@ const Users = (props) => {
   );
 };
 
-export default Users;
+//export default Users;
