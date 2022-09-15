@@ -1,3 +1,4 @@
+import userInfoAvatar from '../img/userInfoAvatar.jpeg';
 import userAvatar from '../img/userAvatar.jpeg';
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
@@ -36,9 +37,13 @@ let initialState = {
   ],
   newPostText: '',
   profile: {
+    id: 2,
+    fullName: 'Sivakov Igor',
+    aboutMe: 'I’ll come back and be stronger',
+    lookingForAJobDescription: 'Looking for a job: //it-kamasutra.com',
     photos: {
-      large: userAvatar,
-      small: userAvatar,
+      large: userInfoAvatar,
+      small: userInfoAvatar,
     },
   },
 };

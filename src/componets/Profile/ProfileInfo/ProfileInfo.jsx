@@ -1,12 +1,11 @@
-import './UserInfo.css';
+import './ProfileInfo.css';
 import userInfoAvatar from './../../../img/userInfoAvatar.jpeg';
 import Preloader from '../../common/preloader/preloader';
 
-const UserInfo = (props) => {
+const ProfileInfo = (props) => {
   if (!props.profile) {
     return <Preloader />;
   }
-  debugger;
   return (
     <div className='card'>
       <div className='card__avatar'>
@@ -28,18 +27,18 @@ const UserInfo = (props) => {
         <p className='card__info__p'>
           {props.profile.aboutMe != null
             ? 'About me: ' + props.profile.aboutMe
-            : 'Date of birth: 19th october'}
+            : 'About me: I’ll come back and be stronger'}
         </p>
         <p className='card__info__p'>City: KIEV</p>
         <p className='card__info__p'>Education: KPI'12</p>
         <p className='card__info__p'>
           {props.profile.lookingForAJobDescription != null
             ? 'Looking for a job: ' + props.profile.lookingForAJobDescription
-            : 'Web site: //it-kamasutra.com'}
+            : 'Looking for a job: //it-kamasutra.com'}
         </p>
       </div>
     </div>
   );
 };
 
-export default UserInfo;
+export default ProfileInfo;

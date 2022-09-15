@@ -1,4 +1,4 @@
-import UserInfo from './UserInfo/UserInfo';
+import ProfileInfo from './ProfileInfo/ProfileInfo';
 import PostForm from './PostForm/PostForm';
 import Post from './Posts/Post/Post';
 import './Profile.css';
@@ -12,7 +12,7 @@ const Profile = (props) => {
     <div className='profile-content'>
       <div>
         <Wallpaper />
-        <UserInfo profile={props.profilePage.profile} />
+        <ProfileInfo profile={props.profilePage.profile} />
       </div>
       <PostForm
         state={props.profilePage}

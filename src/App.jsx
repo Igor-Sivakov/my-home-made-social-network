@@ -4,22 +4,24 @@ import Header from './componets/Header/Header';
 import Music from './componets/Music/Music';
 import News from './componets/News/News';
 import Settings from './componets/Settings/Settings';
-import ProfileConteiner from './componets/Profile/ProfileContainer';
+import ProfileContainer from './componets/Profile/ProfileContainer';
 import DialogsContainer from './componets/Dialogs/DialogsContainer';
 import SideBarConainer from './componets/SideBar/SideBarContainer';
 import UsersContainer from './componets/Users/UsersContainer';
+import HeaderContainer from './componets/Header/HeaderContainer';
 
 const App = (props) => {
   return (
     <div className='body'>
       <div className='app-wrapper'>
         <BrowserRouter>
-          <Header />
+          <HeaderContainer />
           <SideBarConainer store={props.store} />
           <main className='app-wrapper__main'>
             <Routes>
-              <Route path='/' element={<ProfileConteiner />} />
-              <Route path='/Profile' element={<ProfileConteiner />} />
+              <Route path='/' element={<ProfileContainer />} />
+              <Route path='/Profile' element={<ProfileContainer />} />
+              <Route path='/Profile/:userId' element={<ProfileContainer />} />
               <Route path='/Dialogs' element={<DialogsContainer />} />
               <Route path='/News' element={<News />} />
               <Route path='/Music' element={<Music />} />

@@ -44,9 +44,8 @@ const Users = (props) => {
       <div className='find-friends__pagination'>
         {slicedPages.map((page) => {
           return (
-            <div className='find-friends__pagination__page'>
+            <div className='find-friends__pagination__page' key={page.id}>
               <div
-                key={page.id}
                 className={
                   props.state.currentPage === page ? 'selected_page' : ''
                 }

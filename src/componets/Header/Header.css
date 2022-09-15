@@ -18,3 +18,25 @@
 .header-main__logo img {
   margin-left: 90px;
 }
+
+.header-main__auth {
+  margin: 25px 0px 0px 72%;
+  padding: 5px 15px 5px 15px ;
+  height: 20px;
+  font-family: inherit;
+  background-color:rgb(209, 243, 108);;
+  border-radius: 5px;
+}
+
+.header-main__auth:hover {
+ background-color: gold;
+}
+
+.header-main__auth a {
+  color: grey;
+  text-decoration: none;
+}
+
+.header-main__auth a:hover {
+  color: aliceblue;
+}

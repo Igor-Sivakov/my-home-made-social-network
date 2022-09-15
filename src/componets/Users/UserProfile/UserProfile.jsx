@@ -6,7 +6,7 @@ const UserProfile = (props) => {
   return (
     <div className='friends-profile__wrapper'>
       <div className='friends-profile__item'>
-        <NavLink to={'/Profile/'}>
+        <NavLink to={'/Profile/' + props.user.id}>
           <img
             src={
               props.user.photos.small != null
@@ -39,7 +39,9 @@ const UserProfile = (props) => {
             {props.user.name}
           </p>
           <p className='friends-profile__info__leftSide__status'>
-            'Hi guys! Tomorrow I will be boarding, who is with me?'
+            {props.user.status != null
+              ? props.user.status
+              : 'Hi guys! Tomorrow I will be boarding, who is with me?'}
           </p>
         </div>
         <div className='friends-profile__info__rightSide'>
