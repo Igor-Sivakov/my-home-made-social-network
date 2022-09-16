@@ -46,6 +46,7 @@ const Users = (props) => {
           return (
             <div className='find-friends__pagination__page' key={page.id}>
               <div
+                key={page.id}
                 className={
                   props.state.currentPage === page ? 'selected_page' : ''
                 }

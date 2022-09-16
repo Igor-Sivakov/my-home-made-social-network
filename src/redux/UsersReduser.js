@@ -1,4 +1,5 @@
 import userAvatar from '../img/userAvatar.jpeg';
+import userInfoAvatar from '../img/userInfoAvatar.jpeg';
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -11,7 +12,10 @@ let initialState = {
   usersData: [
     {
       name: 'Leo Largo',
-      photos: userAvatar,
+      photos: {
+        large: userAvatar,
+        small: userInfoAvatar,
+      },
       id: 1,
       country: 'USA',
       city: 'New York',
@@ -19,7 +23,10 @@ let initialState = {
     },
     {
       name: 'Finch',
-      photos: userAvatar,
+      photos: {
+        large: userAvatar,
+        small: userInfoAvatar,
+      },
       id: 2,
       country: 'USA',
       city: 'Chicago',
@@ -27,7 +34,10 @@ let initialState = {
     },
     {
       name: 'Tata',
-      photos: userAvatar,
+      photos: {
+        large: userAvatar,
+        small: userInfoAvatar,
+      },
       id: 3,
       country: 'United Kingdom',
       city: 'London',
@@ -35,7 +45,10 @@ let initialState = {
     },
     {
       name: 'Vanessa Leais',
-      photos: userAvatar,
+      photos: {
+        large: userAvatar,
+        small: userInfoAvatar,
+      },
       id: 4,
       country: 'Spain',
       city: 'Barselona',
@@ -43,7 +56,10 @@ let initialState = {
     },
     {
       name: 'Sasha Lenovskiy',
-      photos: userAvatar,
+      photos: {
+        large: userAvatar,
+        small: userInfoAvatar,
+      },
       id: 5,
       country: 'Ukrain',
       city: 'Kiev',
@@ -57,6 +73,7 @@ let initialState = {
 };
 
 const usersReduser = (state = initialState, action) => {
+  debugger;
   switch (action.type) {
     case FOLLOW:
       return {

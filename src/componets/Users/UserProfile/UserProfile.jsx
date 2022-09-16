@@ -1,6 +1,7 @@
 import './UserProfile.css';
 import userAvatar from '../../../img/userAvatar.jpeg';
 import { NavLink } from 'react-router-dom';
+import { userAPI } from '../../API/API';
 
 const UserProfile = (props) => {
   return (
@@ -19,14 +20,26 @@ const UserProfile = (props) => {
         </NavLink>
         {props.user.followed ? (
           <button
-            onClick={() => props.unfollow(props.user.id)}
+            onClick={() => {
+              userAPI.follow(props.user.id).then((data) => {
+                if (data.resultCode === 0) {
+                  props.unfollow(props.user.id);
+                }
+              });
+            }}
             className='friends-profile__item__btn btn'
           >
             Unfollow
           </button>
         ) : (
           <button
-            onClick={() => props.follow(props.user.id)}
+            onClick={() => {
+              userAPI.unfollow(props.user.id).then((data) => {
+                if (data.resultCode === 0) {
+                  props.follow(props.user.id);
+                }
+              });
+            }}
             className='friends-profile__item__btn btn'
           >
             Follow
