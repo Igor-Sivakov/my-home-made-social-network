@@ -20,11 +20,16 @@ const UserProfile = (props) => {
         </NavLink>
         {props.user.followed ? (
           <button
+            disabled={props.followingInProgress.some(
+              (id) => id === props.user.id
+            )}
             onClick={() => {
-              userAPI.follow(props.user.id).then((data) => {
+              props.toggleFollowingProgress(true, props.user.id);
+              userAPI.unfollow(props.user.id).then((data) => {
                 if (data.resultCode === 0) {
                   props.unfollow(props.user.id);
                 }
+                props.toggleFollowingProgress(false, props.user.id);
               });
             }}
             className='friends-profile__item__btn btn'
@@ -33,11 +38,16 @@ const UserProfile = (props) => {
           </button>
         ) : (
           <button
+            disabled={props.followingInProgress.some(
+              (id) => id === props.user.id
+            )}
             onClick={() => {
-              userAPI.unfollow(props.user.id).then((data) => {
+              props.toggleFollowingProgress(true, props.user.id);
+              userAPI.follow(props.user.id).then((data) => {
                 if (data.resultCode === 0) {
                   props.follow(props.user.id);
                 }
+                props.toggleFollowingProgress(false, props.user.id);
               });
             }}
             className='friends-profile__item__btn btn'

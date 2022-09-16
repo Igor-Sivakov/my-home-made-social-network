@@ -2,12 +2,14 @@ import './Users.css';
 import UserProfile from './UserProfile';
 
 const Users = (props) => {
-  let userProfileElement = props.state.users.usersData.map((profile) => (
+  let userProfileElement = props.state.users.map((profile) => (
     <UserProfile
       user={profile}
       key={profile.id}
       follow={props.follow}
       unfollow={props.unfollow}
+      toggleFollowingProgress={props.toggleFollowingProgress}
+      followingInProgress={props.state.followingInProgress}
     />
   ));
 
