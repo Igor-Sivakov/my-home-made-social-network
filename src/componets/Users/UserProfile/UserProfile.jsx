@@ -1,7 +1,6 @@
 import './UserProfile.css';
 import userAvatar from '../../../img/userAvatar.jpeg';
 import { NavLink } from 'react-router-dom';
-import { userAPI } from '../../API/API';
 
 const UserProfile = (props) => {
   return (
@@ -24,13 +23,7 @@ const UserProfile = (props) => {
               (id) => id === props.user.id
             )}
             onClick={() => {
-              props.toggleFollowingProgress(true, props.user.id);
-              userAPI.unfollow(props.user.id).then((data) => {
-                if (data.resultCode === 0) {
-                  props.unfollow(props.user.id);
-                }
-                props.toggleFollowingProgress(false, props.user.id);
-              });
+              props.getUnfollow(props.user.id);
             }}
             className='friends-profile__item__btn btn'
           >
@@ -42,13 +35,7 @@ const UserProfile = (props) => {
               (id) => id === props.user.id
             )}
             onClick={() => {
-              props.toggleFollowingProgress(true, props.user.id);
-              userAPI.follow(props.user.id).then((data) => {
-                if (data.resultCode === 0) {
-                  props.follow(props.user.id);
-                }
-                props.toggleFollowingProgress(false, props.user.id);
-              });
+              props.getFollow(props.user.id);
             }}
             className='friends-profile__item__btn btn'
           >

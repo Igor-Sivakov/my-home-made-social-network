@@ -6,9 +6,8 @@ const Users = (props) => {
     <UserProfile
       user={profile}
       key={profile.id}
-      follow={props.follow}
-      unfollow={props.unfollow}
-      toggleFollowingProgress={props.toggleFollowingProgress}
+      getFollow={props.getFollow}
+      getUnfollow={props.getUnfollow}
       followingInProgress={props.state.followingInProgress}
     />
   ));
