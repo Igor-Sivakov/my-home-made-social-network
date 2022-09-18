@@ -2,6 +2,7 @@ import './MessageForm.css';
 import React from 'react';
 
 const MessageForm = (props) => {
+  debugger;
   let sendMessage = () => {
     props.sendNewMessageBody();
   };

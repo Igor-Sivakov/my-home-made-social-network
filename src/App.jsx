@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Header from './componets/Header/Header';
 import Music from './componets/Music/Music';
 import News from './componets/News/News';
 import Settings from './componets/Settings/Settings';
@@ -9,6 +8,7 @@ import DialogsContainer from './componets/Dialogs/DialogsContainer';
 import SideBarConainer from './componets/SideBar/SideBarContainer';
 import UsersContainer from './componets/Users/UsersContainer';
 import HeaderContainer from './componets/Header/HeaderContainer';
+import Login from './componets/Login /Login';
 
 const App = (props) => {
   return (
@@ -27,6 +27,7 @@ const App = (props) => {
               <Route path='/Music' element={<Music />} />
               <Route path='/FindFriends' element={<UsersContainer />} />
               <Route path='/Settings' element={<Settings />} />
+              <Route path='/Login' element={<Login />} />
             </Routes>
           </main>
         </BrowserRouter>

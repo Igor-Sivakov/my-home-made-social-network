@@ -26,10 +26,7 @@ export const userAPI = {
       return response.data;
     });
   },
-};
-
-export const profileAPI = {
-  getProfile(userId) {
+  getUserProfile(userId) {
     return instance.get(`profile/` + userId).then((response) => {
       return response.data;
     });

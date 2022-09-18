@@ -2,11 +2,13 @@ import Profile from './Profile';
 import {
   addPost,
   updateNewPostText,
-  getProfile,
+  getUserProfile,
 } from '../../redux/profileReducer';
 import { connect } from 'react-redux';
 import React from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { withAuthReNavigate } from '../HOC/withAuthReNavigate';
+import { compose } from 'redux';
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
@@ -14,7 +16,7 @@ class ProfileContainer extends React.Component {
     if (!userId) {
       userId = 2;
     }
-    this.props.getProfile(userId);
+    this.props.getUserProfile(userId);
   }
 
   render() {
@@ -43,8 +45,12 @@ function withRouter(Component) {
   return ComponentWithRouterProp;
 }
 
-export default connect(mapStateToProps, {
-  addPost,
-  updateNewPostText,
-  getProfile,
-})(withRouter(ProfileContainer));
+export default compose(
+  withRouter,
+  connect(mapStateToProps, {
+    addPost,
+    updateNewPostText,
+    getUserProfile,
+  }),
+  withAuthReNavigate
+)(ProfileContainer);

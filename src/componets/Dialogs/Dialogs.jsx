@@ -18,6 +18,7 @@ const Dialogs = (props) => {
     }
     return <Messages state={mail} key={mail.id} />;
   });
+
   return (
     <div className='dialogs'>
       <h2 className='main-page__h2'>DIALOGS</h2>

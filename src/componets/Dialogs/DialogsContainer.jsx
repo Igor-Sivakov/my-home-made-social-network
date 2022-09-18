@@ -1,9 +1,11 @@
 import Dialogs from './Dialogs';
 import {
-  sendNewMessageBodyAC,
-  updateMessageBodyAC,
+  sendNewMessageBody,
+  updateMessageBody,
 } from '../../redux/dialogsReducer';
 import { connect } from 'react-redux';
+import { withAuthReNavigate } from '../HOC/withAuthReNavigate';
+import { compose } from 'redux';
 
 let mapStateToProps = (state) => {
   return {
@@ -11,18 +13,10 @@ let mapStateToProps = (state) => {
   };
 };
 
-let mapDispatchToProps = (dispatch) => {
-  return {
-    sendNewMessageBody: () => {
-      dispatch(sendNewMessageBodyAC());
-    },
-
-    updateMessageBody: (messageBody) => {
-      dispatch(updateMessageBodyAC(messageBody));
-    },
-  };
-};
-
-let DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
-
-export default DialogsContainer;
+export default compose(
+  connect(mapStateToProps, {
+    sendNewMessageBody,
+    updateMessageBody,
+  }),
+  withAuthReNavigate
+)(Dialogs);

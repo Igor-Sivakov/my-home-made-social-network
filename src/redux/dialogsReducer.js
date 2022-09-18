@@ -142,11 +142,11 @@ const dialogsReducer = (state = initialState, action) => {
   }
 };
 
-export const sendNewMessageBodyAC = () => ({
+export const sendNewMessageBody = () => ({
   type: SEND_NEW_MESSAGE_BODY,
 });
 
-export const updateMessageBodyAC = (messageBody) => ({
+export const updateMessageBody = (messageBody) => ({
   type: UPDATE_MESSAGE_BODY,
   newMessage: messageBody,
 });
