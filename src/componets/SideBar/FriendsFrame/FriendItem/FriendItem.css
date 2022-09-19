@@ -6,13 +6,12 @@
   font-size: 14px;
   width: 50px;
   height: 50px;
-  margin: 10px 5px 10px 6px;
+  margin: 10px 15px 20px 10px;
   }
 
 .friendItem__conteiner:hover  {
   width: 65px;
   height: 65px;
-  font-size: 16px;
   font-weight: 700;
   transition: width 0.8s, height 0.8s, font-size 0.8s, font-weight 0.2s,
   color 0.3s, transform 0.8s;
@@ -25,6 +24,8 @@
   border-radius: 50%;
 }
 
+
 .friendItem__name {
- margin: 0;
+ font-size: 10px; 
+ margin-top: 2px; 
 }

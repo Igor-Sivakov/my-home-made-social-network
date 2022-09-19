@@ -1,5 +1,20 @@
 import { connect } from 'react-redux';
 import SideBar from './SideBar';
+import React from 'react';
+import { getFriends } from './../../redux/sideBarReducer';
+
+class SideBarConainer extends React.Component {
+  componentDidMount() {
+    this.props.getFriends();
+  }
+  render() {
+    return (
+      <>
+        <SideBar {...this.props} />
+      </>
+    );
+  }
+}
 
 let mapStateToProps = (state) => {
   return {
@@ -7,6 +22,4 @@ let mapStateToProps = (state) => {
   };
 };
 
-let SideBarConainer = connect(mapStateToProps)(SideBar);
-
-export default SideBarConainer;
+export default connect(mapStateToProps, { getFriends })(SideBarConainer);

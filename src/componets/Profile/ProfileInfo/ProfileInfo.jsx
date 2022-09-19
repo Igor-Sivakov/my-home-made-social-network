@@ -1,6 +1,7 @@
 import './ProfileInfo.css';
 import userInfoAvatar from './../../../img/userInfoAvatar.jpeg';
 import Preloader from '../../common/preloader/preloader';
+import ProfileStatus from './ProfileStatus/ProfileStatus';
 
 const ProfileInfo = (props) => {
   if (!props.profile) {
@@ -24,7 +25,8 @@ const ProfileInfo = (props) => {
             ? props.profile.fullName
             : 'Igor Sivakov'}
         </h3>
-        <p className='card__info__p'>
+        <ProfileStatus status={'Hello world!!!'} />
+        <p className='card__info__p card__info__p_mod-marg'>
           {props.profile.aboutMe != null
             ? 'About me: ' + props.profile.aboutMe
             : 'About me: I’ll come back and be stronger'}

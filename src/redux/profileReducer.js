@@ -1,6 +1,6 @@
 import userInfoAvatar from '../img/userInfoAvatar.jpeg';
 import userAvatar from '../img/userAvatar.jpeg';
-import { userAPI } from './../componets/API/API';
+import { profileAPI } from './../componets/API/API';
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
@@ -96,7 +96,7 @@ export const setUserProfile = (profile) => ({
 
 export const getUserProfile = (userId) => {
   return (dispatch) => {
-    userAPI.getUserProfile(userId).then((data) => {
+    profileAPI.getUserProfile(userId).then((data) => {
       dispatch(setUserProfile(data));
     });
   };
