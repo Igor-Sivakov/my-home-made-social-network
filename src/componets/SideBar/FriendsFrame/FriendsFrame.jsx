@@ -3,7 +3,13 @@ import './FriendsFrame.css';
 
 const FriendsFrame = (props) => {
   let sideBarElements = props.state.friendsData.map((friend) => {
-    return <FriendItem state={friend} key={friend.id} />;
+    return (
+      <FriendItem
+        state={friend}
+        key={friend.id}
+        getUserProfile={props.getUserProfile}
+      />
+    );
   });
 
   return (

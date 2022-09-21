@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import SideBar from './SideBar';
 import React from 'react';
 import { getFriends } from './../../redux/sideBarReducer';
+import { getUserProfile } from './../../redux/profileReducer';
 
 class SideBarConainer extends React.Component {
   componentDidMount() {
@@ -10,7 +11,7 @@ class SideBarConainer extends React.Component {
   render() {
     return (
       <>
-        <SideBar {...this.props} />
+        <SideBar {...this.props} getUserProfile={this.props.getUserProfile} />
       </>
     );
   }
@@ -22,4 +23,6 @@ let mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { getFriends })(SideBarConainer);
+export default connect(mapStateToProps, { getFriends, getUserProfile })(
+  SideBarConainer
+);

@@ -2,8 +2,8 @@ import userInfoAvatar from '../img/userInfoAvatar.jpeg';
 import userAvatar from '../img/userAvatar.jpeg';
 import { profileAPI } from './../componets/API/API';
 const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
+const SET_STATUS = 'SET_STATUS';
 
 let initialState = {
   postsData: [
@@ -38,7 +38,7 @@ let initialState = {
   ],
   newPostText: '',
   profile: {
-    id: 2,
+    id: 25991,
     fullName: 'Sivakov Igor',
     aboutMe: 'I’ll come back and be stronger',
     lookingForAJobDescription: 'Looking for a job: //it-kamasutra.com',
@@ -47,6 +47,7 @@ let initialState = {
       small: userInfoAvatar,
     },
   },
+  status: '',
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -57,7 +58,7 @@ const profileReducer = (state = initialState, action) => {
         id: randomId,
         name: 'userName',
         avatar: userAvatar,
-        message: state.newPostText,
+        message: action.post,
         likeCounts: 0,
       };
 
@@ -67,16 +68,16 @@ const profileReducer = (state = initialState, action) => {
         postsData: [...state.postsData, newPost],
       };
 
-    case UPDATE_NEW_POST_TEXT:
-      return {
-        ...state,
-        newPostText: action.newText,
-      };
-
     case SET_USER_PROFILE:
       return {
         ...state,
         profile: action.profile,
+      };
+
+    case SET_STATUS:
+      return {
+        ...state,
+        status: action.status,
       };
 
     default:
@@ -84,20 +85,40 @@ const profileReducer = (state = initialState, action) => {
   }
 };
 
-export const addPost = () => ({ type: ADD_POST });
-export const updateNewPostText = (text) => ({
-  type: UPDATE_NEW_POST_TEXT,
-  newText: text,
-});
+export const addPost = (post) => ({ type: ADD_POST, post });
+
 export const setUserProfile = (profile) => ({
   type: SET_USER_PROFILE,
   profile,
 });
 
+export const setStatus = (status) => ({
+  type: SET_STATUS,
+  status,
+});
+
 export const getUserProfile = (userId) => {
   return (dispatch) => {
-    profileAPI.getUserProfile(userId).then((data) => {
-      dispatch(setUserProfile(data));
+    profileAPI.getUserProfile(userId).then((response) => {
+      dispatch(setUserProfile(response.data));
+    });
+  };
+};
+
+export const getUserStatus = (userId) => {
+  return (dispatch) => {
+    profileAPI.getStatus(userId).then((response) => {
+      dispatch(setStatus(response.data));
+    });
+  };
+};
+
+export const updateUserStatus = (status) => {
+  return (dispatch) => {
+    profileAPI.updateStatus(status).then((response) => {
+      if (response.data.resultCode === 0) {
+        dispatch(setStatus(status));
+      }
     });
   };
 };

@@ -1,7 +1,6 @@
 import userAvatar from '../img/userAvatar.jpeg';
 
 const SEND_NEW_MESSAGE_BODY = 'SEND_NEW_MESSAGE_BODY';
-const UPDATE_MESSAGE_BODY = 'UPDATE_MESSAGE_BODY';
 
 let initialState = {
   dialogsData: [
@@ -111,7 +110,6 @@ let initialState = {
       message: 'Coco Loko! Alo Alo...',
     },
   ],
-  newMessageBody: '',
 };
 
 const dialogsReducer = (state = initialState, action) => {
@@ -122,19 +120,12 @@ const dialogsReducer = (state = initialState, action) => {
         id: randomId,
         avatar: 'https://freelance.ru/img/portfolio/pics/00/36/88/3573970.jpg',
         name: 'Vitaliy',
-        message: state.newMessageBody,
+        message: action.message,
       };
 
       return {
         ...state,
-        newMessageBody: '',
         messagesData: [...state.messagesData, messageBody],
-      };
-
-    case UPDATE_MESSAGE_BODY:
-      return {
-        ...state,
-        newMessageBody: action.newMessage,
       };
 
     default:
@@ -142,13 +133,9 @@ const dialogsReducer = (state = initialState, action) => {
   }
 };
 
-export const sendNewMessageBody = () => ({
+export const sendNewMessageBody = (message) => ({
   type: SEND_NEW_MESSAGE_BODY,
-});
-
-export const updateMessageBody = (messageBody) => ({
-  type: UPDATE_MESSAGE_BODY,
-  newMessage: messageBody,
+  message,
 });
 
 export default dialogsReducer;

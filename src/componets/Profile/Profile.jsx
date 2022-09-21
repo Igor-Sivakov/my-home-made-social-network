@@ -1,6 +1,6 @@
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 import PostForm from './PostForm/PostForm';
-import Post from './Posts/Post/Post';
+import Post from './Post/Post';
 import './Profile.css';
 import Wallpaper from './Wallpaper/Wallpaper';
 
@@ -13,13 +13,13 @@ const Profile = (props) => {
     <div className='profile-content'>
       <div>
         <Wallpaper />
-        <ProfileInfo profile={props.profilePage.profile} />
+        <ProfileInfo
+          profile={props.profilePage.profile}
+          status={props.profilePage.status}
+          updateUserStatus={props.updateUserStatus}
+        />
       </div>
-      <PostForm
-        state={props.profilePage}
-        addPost={props.addPost}
-        updateNewPostText={props.updateNewPostText}
-      />
+      <PostForm state={props.profilePage} addPost={props.addPost} />
       {postElements}
     </div>
   );

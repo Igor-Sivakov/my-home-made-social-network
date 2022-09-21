@@ -25,7 +25,10 @@ const ProfileInfo = (props) => {
             ? props.profile.fullName
             : 'Igor Sivakov'}
         </h3>
-        <ProfileStatus status={'Hello world!!!'} />
+        <ProfileStatus
+          status={props.status}
+          updateUserStatus={props.updateUserStatus}
+        />
         <p className='card__info__p card__info__p_mod-marg'>
           {props.profile.aboutMe != null
             ? 'About me: ' + props.profile.aboutMe

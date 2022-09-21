@@ -7,6 +7,9 @@ const FriendItem = (props) => {
     <NavLink
       to={'/Profile/' + props.state.id}
       className='friendItem__conteiner'
+      onClick={() => {
+        props.getUserProfile(props.state.id);
+      }}
     >
       <img
         src={props.state.photos.small ? props.state.photos.small : userAvatar}

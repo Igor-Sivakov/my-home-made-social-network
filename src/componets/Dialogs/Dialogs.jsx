@@ -32,7 +32,6 @@ const Dialogs = (props) => {
           <MessageForm
             state={props.dialogsPage}
             sendNewMessageBody={props.sendNewMessageBody}
-            updateMessageBody={props.updateMessageBody}
           />
           <div className='messages-conteiner__small'>{messageElements}</div>
         </div>

@@ -37,7 +37,10 @@ const SideBar = (props) => {
           </NavLink>
         </div>
       </nav>
-      <FriendsFrame state={props.sideBar} />
+      <FriendsFrame
+        state={props.sideBar}
+        getUserProfile={props.getUserProfile}
+      />
     </div>
   );
 };

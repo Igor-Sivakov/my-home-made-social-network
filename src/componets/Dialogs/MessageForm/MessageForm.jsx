@@ -1,30 +1,33 @@
 import './MessageForm.css';
 import React from 'react';
+import { reduxForm, Field } from 'redux-form';
+
+const MsgForm = (props) => {
+  return (
+    <form className='messageForm__inner' onSubmit={props.handleSubmit}>
+      <Field
+        className='messageForm__textArea'
+        name='msgTextArea'
+        placeholder='enter your mail...'
+        component='textarea'
+      />
+      <button className='messageForm__btn btn'>Send</button>
+    </form>
+  );
+};
+
+const ReduxMessageForm = reduxForm({
+  form: 'messageForm',
+})(MsgForm);
 
 const MessageForm = (props) => {
-  debugger;
-  let sendMessage = () => {
-    props.sendNewMessageBody();
-  };
-
-  let onMessageChange = (event) => {
-    let messageBody = event.target.value;
-    props.updateMessageBody(messageBody);
+  let addNewMessage = (values) => {
+    props.sendNewMessageBody(values.msgTextArea);
   };
 
   return (
     <div className='messageForm__wrapper'>
-      <div className='messageForm__inner'>
-        <textarea
-          className='messageForm__textArea'
-          placeholder='enter your mail...'
-          onChange={onMessageChange}
-          value={props.state.newMessageBody}
-        />
-        <button onClick={sendMessage} className='messageForm__btn btn'>
-          Send
-        </button>
-      </div>
+      <ReduxMessageForm onSubmit={addNewMessage} />
     </div>
   );
 };
