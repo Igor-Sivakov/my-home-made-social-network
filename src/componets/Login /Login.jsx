@@ -4,7 +4,7 @@ const LoginForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
       <div>
-        <Field name='login' placeholder='Login' component='input' />
+        <Field name='email' placeholder='email' component='input' />
       </div>
       <div>
         <Field name='password' placeholder='Password' component='input' />
@@ -26,7 +26,7 @@ const ReduxLoginForm = reduxForm({
 
 const Login = (props) => {
   const onSubmit = (formData) => {
-    console.log(formData);
+    props.signIn(formData);
   };
 
   return (

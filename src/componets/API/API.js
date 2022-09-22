@@ -50,4 +50,7 @@ export const authAPI = {
       return response.data;
     });
   },
+  signIn(formData) {
+    return instance.post(`auth/login`, formData);
+  },
 };
