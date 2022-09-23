@@ -4,13 +4,23 @@
  
 }
 
+.fiendsFrame__h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+  padding-left: 60px;
+  margin-bottom: 10px;
+}
+
+.fiendsFrame__h2 span {
+  margin-left: -45px;
+  font-size: 30px;
+}
+
 .fiendsFrame__wrapper {  
   text-align:center;
 }
 
-.fiendsFrame h2 {
-  margin: 0px 10px 0px 15px;
-}
 
 
 

@@ -1,15 +1,21 @@
 import './PostForm.css';
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
+import { minMaxLengthCreator, norequired } from './../../utils/validators';
+import { FormElementConstructor } from '../../common/formContrlos/formControls';
 
 const PstForm = (props) => {
+  let maxLength = minMaxLengthCreator(0, 300);
+  let Textarea = FormElementConstructor('textarea');
+
   return (
     <form onSubmit={props.handleSubmit}>
       <Field
         className='post__textArea'
-        name='postTextArea'
+        name='postText'
         placeholder='your news...'
-        component='textarea'
+        validate={[norequired, maxLength]}
+        component={Textarea}
       />
       <button className='post__btn btn'>Send</button>
     </form>
@@ -22,7 +28,7 @@ const ReduxPostForm = reduxForm({
 
 const PostForm = (props) => {
   let addNewPost = (values) => {
-    props.addPost(values.postTextArea);
+    props.addPost(values.postText);
   };
 
   return (

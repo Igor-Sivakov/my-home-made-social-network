@@ -1,0 +1,52 @@
+.login-form__wrapper {
+  display: flex; 
+  width: 100%;
+  height: 400px;
+  justify-content: center;
+  align-items:center;
+}
+
+.login-form__input {
+  width: 250px;
+  height: 30px;
+  margin: 10px 0px 10px 0px;
+  padding-left: 10px;
+  border-radius: 7px;
+  border: 1px solid grey;
+  background-color:aliceblue;
+}
+
+
+.login-form__checkbox__container{
+  display: flex;
+  width: 200px;
+  height: 30px;
+  margin: 0px 0px -15px 0px;
+}
+
+.login-form__checkbox {
+  color: grey;
+  border-radius: 50%;
+   width: 15px;
+  height: 15px;
+}
+
+.login-form__btn{
+  width: 120px;
+  height: 30px;
+  font-size: 16px;
+  border-radius: 5px;
+  font-weight: 600;
+  margin: 0px 0px 0px 145px;
+}
+
+.login-form__btn:hover {
+  color: aliceblue;
+  background-color: gold;
+}
+
+.login-form__linkToSignUp__container {
+  width: 265px;
+  text-align:center;
+  margin-top: 35px;
+}

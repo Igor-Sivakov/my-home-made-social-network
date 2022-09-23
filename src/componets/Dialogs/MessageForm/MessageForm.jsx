@@ -1,15 +1,20 @@
 import './MessageForm.css';
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
+import { TextareaForMessages } from '../../common/formContrlos/formControls';
+import { minMaxLengthCreator, norequired } from '../../utils/validators';
 
 const MsgForm = (props) => {
+  let maxLength = minMaxLengthCreator(0, 200);
+
   return (
     <form className='messageForm__inner' onSubmit={props.handleSubmit}>
       <Field
         className='messageForm__textArea'
-        name='msgTextArea'
+        name='messageText'
         placeholder='enter your mail...'
-        component='textarea'
+        validate={[norequired, maxLength]}
+        component={TextareaForMessages}
       />
       <button className='messageForm__btn btn'>Send</button>
     </form>
@@ -22,7 +27,7 @@ const ReduxMessageForm = reduxForm({
 
 const MessageForm = (props) => {
   let addNewMessage = (values) => {
-    props.sendNewMessageBody(values.msgTextArea);
+    props.sendNewMessageBody(values.messageText);
   };
 
   return (

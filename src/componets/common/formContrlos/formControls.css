@@ -1,0 +1,20 @@
+._error textarea {
+  border: 1px solid red;
+  outline: none;
+}
+
+._error span {
+  color: red;
+}
+
+.editStyleForMsgForm {
+  width: 100%;
+}
+.editStyleForMsgForm_error textarea {
+  border: 1px solid red;
+  outline: none;
+}
+.editStyleForMsgForm_error span {
+  color: red;
+  margin-left: 25px;
+}
