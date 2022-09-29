@@ -16,6 +16,9 @@
   background-color:aliceblue;
 }
 
+.login-form__summeryError {
+  color: red;
+}
 
 .login-form__checkbox__container{
   display: flex;

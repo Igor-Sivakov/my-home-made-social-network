@@ -20,6 +20,7 @@ class SideBarConainer extends React.Component {
 let mapStateToProps = (state) => {
   return {
     sideBar: state.sideBar,
+    isAuth: state.auth.isAuth,
   };
 };
 

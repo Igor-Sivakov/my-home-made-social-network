@@ -10,7 +10,7 @@
 }
 
 .header-main__logo {
-  width: 17.5%;
+  width: 21%;
   display: flex;
   margin-left: 0px;
   background-color: white; 
@@ -19,24 +19,32 @@
   margin-left: 90px;
 }
 
-.header-main__auth {
-  margin: 25px 0px 0px 72%;
-  padding: 5px 15px 5px 15px ;
-  height: 20px;
-  font-family: inherit;
-  background-color:rgb(209, 243, 108);;
-  border-radius: 5px;
+.header-main__auth__container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
-.header-main__auth:hover {
- background-color: gold;
-}
-
-.header-main__auth a {
-  color: grey;
+.header-main__auth__link {
+  display: flex; 
+  align-items: center;
   text-decoration: none;
+  padding: 0px 10px 0px 10px;
+  font-size: 14px; 
 }
 
-.header-main__auth a:hover {
+.header-main__auth__link:hover {
+ background-color: gold;
+ color: aliceblue;
+}
+
+
+.header-main__auth__btn {
+  margin: 0px 0px 0px 20px;
+  padding: 0px 10px 0px 10px;
+}
+
+.header-main__auth__btn:hover {
   color: aliceblue;
+  background-color: gold;
 }

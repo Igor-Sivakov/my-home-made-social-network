@@ -1,7 +1,7 @@
+import { stopSubmit } from 'redux-form';
 import { authAPI } from './../componets/API/API';
 
 const SET_USER_DATA = 'SET_USER_DATA';
-const SET_AUTH_SIGN = 'SET_AUTH_SIGN';
 
 let initialState = {
   id: null,
@@ -15,8 +15,7 @@ const authReduser = (state = initialState, action) => {
     case SET_USER_DATA:
       return {
         ...state,
-        ...action.data,
-        isAuth: true,
+        ...action.payload,
       };
 
     default:
@@ -24,9 +23,9 @@ const authReduser = (state = initialState, action) => {
   }
 };
 
-export const setUserData = (id, email, login) => ({
+const setUserData = (id, email, login, isAuth) => ({
   type: SET_USER_DATA,
-  data: { id, email, login },
+  payload: { id, email, login, isAuth },
 });
 
 export const getAuth = () => {
@@ -34,7 +33,7 @@ export const getAuth = () => {
     authAPI.getAuth().then((data) => {
       let { id, email, login } = data.data;
       if (data.resultCode === 0) {
-        dispatch(setUserData(id, email, login));
+        dispatch(setUserData(id, email, login, true));
       }
     });
   };
@@ -44,12 +43,23 @@ export const signIn = (formData) => {
   return (dispatch) => {
     authAPI.signIn(formData).then((response) => {
       if (response.data.resultCode === 0) {
-        authAPI.getAuth().then((data) => {
-          let { id, email, login } = data.data;
-          if (data.resultCode === 0) {
-            dispatch(setUserData(id, email, login));
-          }
-        });
+        dispatch(getAuth());
+      } else {
+        let message =
+          response.data.messages.length > 0
+            ? response.data.messages[0]
+            : 'some error';
+        dispatch(stopSubmit('login', { _error: message }));
+      }
+    });
+  };
+};
+
+export const signOut = () => {
+  return (dispatch) => {
+    authAPI.signOut().then((response) => {
+      if (response.data.resultCode === 0) {
+        dispatch(setUserData(null, null, null, false));
       }
     });
   };

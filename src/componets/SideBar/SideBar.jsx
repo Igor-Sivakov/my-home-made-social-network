@@ -39,6 +39,7 @@ const SideBar = (props) => {
       </nav>
       <FriendsFrame
         state={props.sideBar}
+        isAuth={props.isAuth}
         getUserProfile={props.getUserProfile}
       />
     </div>

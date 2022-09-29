@@ -28,6 +28,9 @@ const LoginForm = (props) => {
           className='login-form__input'
         />
       </div>
+      {props.error && (
+        <div className='login-form__summeryError'>{props.error}</div>
+      )}
       <div className='login-form__checkbox__container'>
         <Field
           name='rememberMe'
