@@ -5,24 +5,16 @@ import React from 'react';
 import { Navigate } from 'react-router-dom';
 
 class LoginContainer extends React.Component {
-  state = {
-    rerender: false,
-  };
-
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     if (prevProps.authInfo !== this.props.authInfo) {
-      this.setState({
-        rerender: true,
-      });
-    } else if (prevState.render !== this.state.rerender) {
       this.render();
     }
   }
 
   render() {
-    if (this.state.rerender) {
+    if (this.props.authInfo) {
       return <Navigate to={'/Profile'} />;
-    } else if (!this.state.rerender) {
+    } else if (!this.props.authInfo) {
       return <Login {...this.props} signIn={this.props.signIn} />;
     }
   }
@@ -30,7 +22,7 @@ class LoginContainer extends React.Component {
 
 let mapStateToProps = (state) => {
   return {
-    authInfo: state.auth,
+    authInfo: state.auth.isAuth,
   };
 };
 
