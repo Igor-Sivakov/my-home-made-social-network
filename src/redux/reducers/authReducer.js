@@ -1,5 +1,5 @@
 import { stopSubmit } from 'redux-form';
-import { authAPI } from './../componets/API/API';
+import { authAPI } from '../../componets/API/API';
 
 const SET_USER_DATA = 'SET_USER_DATA';
 

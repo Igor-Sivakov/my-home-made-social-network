@@ -1,6 +1,6 @@
-import userInfoAvatar from '../img/userInfoAvatar.jpeg';
-import userAvatar from '../img/userAvatar.jpeg';
-import { profileAPI } from './../componets/API/API';
+import userInfoAvatar from '../../img/userInfoAvatar.jpeg';
+import userAvatar from '../../img/userAvatar.jpeg';
+import { profileAPI } from './../../componets/API/API';
 const ADD_POST = 'ADD-POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
@@ -36,7 +36,6 @@ let initialState = {
       likeCounts: 36,
     },
   ],
-  newPostText: '',
   profile: {
     id: 25991,
     fullName: 'Sivakov Igor',
@@ -64,7 +63,6 @@ const profileReducer = (state = initialState, action) => {
 
       return {
         ...state,
-        newPostText: '',
         postsData: [...state.postsData, newPost],
       };
 

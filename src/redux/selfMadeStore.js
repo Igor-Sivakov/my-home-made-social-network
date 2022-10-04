@@ -1,6 +1,6 @@
-import dialogsReducer from './dialogsReducer';
-import profileReducer from './profileReducer';
-import sideBarReducer from './sideBarReducer';
+import dialogsReducer from '../dialogsReducer';
+import profileReducer from '../profileReducer';
+import sideBarReducer from './reducers/sideBarReducer';
 
 let selfMadeStore = {
   _callSubscriber() {

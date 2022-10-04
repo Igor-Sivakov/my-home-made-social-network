@@ -11,9 +11,10 @@ import SideBarConainer from './componets/SideBar/SideBarContainer';
 import UsersContainer from './componets/Users/UsersContainer';
 import HeaderContainer from './componets/Header/HeaderContainer';
 import LoginContainer from './componets/Login /LoginContainer';
-import { initializeApp } from './redux/appReducer';
+import { initializeApp } from './redux/reducers/appReducer';
 import Preloader from './componets/common/preloader/preloader';
 import { compose } from 'redux';
+import { getInitialized } from './redux/selectors/appSelectors';
 
 class App extends React.Component {
   componentDidMount() {
@@ -52,7 +53,7 @@ class App extends React.Component {
 
 let mapStateToProps = (state) => {
   return {
-    initialized: state.app.initialized,
+    initialized: getInitialized(state),
   };
 };
 

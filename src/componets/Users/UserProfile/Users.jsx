@@ -2,6 +2,7 @@ import './Users.css';
 import UserProfile from './UserProfile';
 
 const Users = (props) => {
+  debugger;
   let userProfileElement = props.state.users.map((profile) => (
     <UserProfile
       user={profile}

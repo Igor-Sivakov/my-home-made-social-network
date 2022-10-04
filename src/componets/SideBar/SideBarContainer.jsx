@@ -1,12 +1,14 @@
 import { connect } from 'react-redux';
 import SideBar from './SideBar';
 import React from 'react';
-import { getFriends } from './../../redux/sideBarReducer';
-import { getUserProfile } from './../../redux/profileReducer';
+import { getPeoples } from './../../redux/reducers/sideBarReducer';
+import { getUserProfile } from './../../redux/reducers/profileReducer';
+import { getIsAuth } from '../../redux/selectors/authSelectors';
+import { getPeopleYouMayNow } from '../../redux/selectors/sideBarSelectors';
 
 class SideBarConainer extends React.Component {
   componentDidMount() {
-    this.props.getFriends();
+    this.props.getPeoples();
   }
   render() {
     return (
@@ -19,11 +21,11 @@ class SideBarConainer extends React.Component {
 
 let mapStateToProps = (state) => {
   return {
-    sideBar: state.sideBar,
-    isAuth: state.auth.isAuth,
+    peoples: getPeopleYouMayNow(state),
+    isAuth: getIsAuth(state),
   };
 };
 
-export default connect(mapStateToProps, { getFriends, getUserProfile })(
+export default connect(mapStateToProps, { getPeoples, getUserProfile })(
   SideBarConainer
 );

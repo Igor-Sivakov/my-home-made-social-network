@@ -1,5 +1,5 @@
-import { userAPI } from '../componets/API/API';
-import userAvatar from '../img/userAvatar.jpeg';
+import { userAPI } from '../../componets/API/API';
+import userAvatar from '../../img/userAvatar.jpeg';
 
 const SEND_NEW_MESSAGE_BODY = 'SEND_NEW_MESSAGE_BODY';
 const ADD_FRIENDS_FOR_DIALOGS = 'ADD_FRIENDS_FOR_DIALOGS';

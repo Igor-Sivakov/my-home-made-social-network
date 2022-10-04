@@ -1,10 +1,10 @@
-import userAvatar from '../img/userAvatar.jpeg';
-import { userAPI } from '../componets/API/API';
+import userAvatar from '../../img/userAvatar.jpeg';
+import { userAPI } from '../../componets/API/API';
 
 const GET_FRIENDS_ITEMS = 'GET_FRIENDS_ITEMS';
 
 let initialState = {
-  friendsData: [
+  peoplesData: [
     {
       id: 1,
       photos: {
@@ -85,22 +85,22 @@ const sideBarReducer = (state = initialState, action) => {
     case GET_FRIENDS_ITEMS:
       return {
         ...state,
-        friendsData: action.friends,
+        peoplesData: action.peoples,
       };
     default:
       return state;
   }
 };
 
-export const getFriendsItems = (friends) => ({
+export const getPeoplesItems = (peoples) => ({
   type: GET_FRIENDS_ITEMS,
-  friends,
+  peoples,
 });
 
-export const getFriends = () => {
+export const getPeoples = () => {
   return (dispatch) => {
     userAPI.getUser().then((data) => {
-      dispatch(getFriendsItems(data.items));
+      dispatch(getPeoplesItems(data.items));
     });
   };
 };

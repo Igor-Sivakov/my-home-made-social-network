@@ -1,6 +1,6 @@
-import userAvatar from '../img/userAvatar.jpeg';
-import userInfoAvatar from '../img/userInfoAvatar.jpeg';
-import { userAPI } from './../componets/API/API';
+import userAvatar from '../../img/userAvatar.jpeg';
+import userInfoAvatar from '../../img/userInfoAvatar.jpeg';
+import { userAPI } from '../../componets/API/API';
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -106,7 +106,7 @@ const usersReduser = (state = initialState, action) => {
     case SET_CURRENT_PAGE:
       return {
         ...state,
-        currentPage: action.pageNumber,
+        setCurrentPage: action.pageNumber,
       };
 
     case SET_TOTAL_USERS_COUNT:
@@ -167,7 +167,7 @@ export const toggleFollowingProgress = (inProgress, userId) => ({
   userId,
 });
 
-export const getUsers = (currentPage, pageSize) => {
+export const requestUsers = (currentPage, pageSize) => {
   return (dispatch) => {
     dispatch(setCurrentPage(currentPage));
     dispatch(toggleIsFetching(true));

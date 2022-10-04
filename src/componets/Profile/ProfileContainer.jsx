@@ -4,12 +4,21 @@ import {
   getUserProfile,
   getUserStatus,
   updateUserStatus,
-} from '../../redux/profileReducer';
+} from '../../redux/reducers/profileReducer';
 import { connect } from 'react-redux';
 import React from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { withAuthReNavigate } from '../HOC/withAuthReNavigate';
 import { compose } from 'redux';
+import {
+  getPostsData,
+  getProfileAboutMe,
+  getProfileFullName,
+  getProfileLookingForAJob,
+  getProfilePhotos,
+  getProfileStatus,
+} from '../../redux/selectors/profileSelectors';
+import { getAuthId } from '../../redux/selectors/authSelectors';
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
@@ -35,8 +44,13 @@ class ProfileContainer extends React.Component {
 
 let mapStateToProps = (state) => {
   return {
-    profilePage: state.profilePage,
-    authUserId: state.auth.id,
+    postsData: getPostsData(state),
+    photos: getProfilePhotos(state),
+    fullName: getProfileFullName(state),
+    aboutMe: getProfileAboutMe(state),
+    lookingForAJob: getProfileLookingForAJob(state),
+    status: getProfileStatus(state),
+    authUserId: getAuthId(state),
   };
 };
 

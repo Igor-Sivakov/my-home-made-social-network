@@ -3,10 +3,14 @@ import React from 'react';
 import {
   sendNewMessageBody,
   getFriendsForDialogs,
-} from '../../redux/dialogsReducer';
+} from '../../redux/reducers/dialogsReducer';
 import { connect } from 'react-redux';
 import { withAuthReNavigate } from '../HOC/withAuthReNavigate';
 import { compose } from 'redux';
+import {
+  getDialogsData,
+  getMessagesData,
+} from '../../redux/selectors/dialogsSelectors';
 
 class DialogsContainer extends React.Component {
   componentDidMount() {
@@ -27,7 +31,8 @@ class DialogsContainer extends React.Component {
 
 let mapStateToProps = (state) => {
   return {
-    dialogsPage: state.dialogsPage,
+    dialogsData: getDialogsData(state),
+    messagesData: getMessagesData(state),
   };
 };
 

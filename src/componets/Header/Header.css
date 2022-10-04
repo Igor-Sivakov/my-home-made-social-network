@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Dirt&family=Silkscreen&display=swap');
+
 .header {
   grid-area: head;
   display: flex;
@@ -16,7 +18,22 @@
   background-color: white; 
 }
 .header-main__logo img {
-  margin-left: 90px;
+  margin-left: 35px;
+}
+.header-main__logo__react {
+
+  text-align: center;
+  margin: 0px 0px 0px -10px; 
+}
+.header-main__logo__react img {
+  width: 100px;
+  height: 72px;
+  margin: 0px 0px -15px 0px;
+}
+.header-main__logo__react span {
+  color: #61DAFB; 
+  font-size: 20px;
+  font-family: 'Rubik Dirt', cursive;
 }
 
 .header-main__auth__container {
