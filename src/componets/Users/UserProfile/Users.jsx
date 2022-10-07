@@ -2,7 +2,6 @@ import './Users.css';
 import UserProfile from './UserProfile';
 
 const Users = (props) => {
-  debugger;
   let userProfileElement = props.state.users.map((profile) => (
     <UserProfile
       user={profile}
@@ -27,7 +26,6 @@ const Users = (props) => {
   let curPF = curP - 5 < 0 ? 0 : curP - 5;
   let curPL = curP + 5;
   let slicedPages = pages.slice(curPF, curPL);
-  let randomPageNumber = Math.floor(Math.random() * 10);
 
   return (
     <div className='find-friends'>
@@ -37,7 +35,7 @@ const Users = (props) => {
         <button
           className='find-friends__pageBtn btn'
           onClick={(event) => {
-            props.onPageChanged(randomPageNumber);
+            props.onPageChanged(curP + 1);
           }}
         >
           Show more
