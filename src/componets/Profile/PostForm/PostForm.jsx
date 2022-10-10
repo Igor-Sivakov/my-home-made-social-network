@@ -26,7 +26,7 @@ const ReduxPostForm = reduxForm({
   form: 'post',
 })(PstForm);
 
-const PostForm = (props) => {
+const PostForm = React.memo((props) => {
   let addNewPost = (values) => {
     props.addPost(values.postText);
   };
@@ -39,6 +39,6 @@ const PostForm = (props) => {
       </div>
     </div>
   );
-};
+});
 
 export default PostForm;

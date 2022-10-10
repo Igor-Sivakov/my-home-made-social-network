@@ -2,18 +2,22 @@ import './formControls.css';
 
 export const FormElementConstructor =
   (Element) =>
-  ({ input, meta, ...props }) => {
-    let hasError = meta.touched && meta.error;
+  ({ input, meta: { touched, error }, ...props }) => {
+    let hasError = touched && error;
     return (
       <div className={hasError ? '_error' : ''}>
         <Element {...input} {...props} />
-        {hasError && <span>{meta.error}</span>}
+        {hasError && <span>{error}</span>}
       </div>
     );
   };
 
-export const TextareaForMessages = ({ input, meta, ...props }) => {
-  let hasError = meta.touched && meta.error;
+export const TextareaForMessages = ({
+  input,
+  meta: { touched, error },
+  ...props
+}) => {
+  let hasError = touched && error;
   return (
     <div
       className={
@@ -23,7 +27,7 @@ export const TextareaForMessages = ({ input, meta, ...props }) => {
       }
     >
       <textarea {...input} {...props} />
-      {hasError && <span>{meta.error}</span>}
+      {hasError && <span>{error}</span>}
     </div>
   );
 };

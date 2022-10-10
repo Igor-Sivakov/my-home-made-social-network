@@ -5,7 +5,7 @@ import {
   getUnfollow,
 } from '../../redux/reducers/usersReduser';
 import React from 'react';
-import Users from './UserProfile/Users';
+import Users from './Users';
 import Preloader from '../common/preloader/preloader';
 import { withAuthReNavigate } from '../HOC/withAuthReNavigate';
 import { compose } from 'redux';
@@ -20,11 +20,13 @@ import {
 
 class UsersContainer extends React.Component {
   componentDidMount() {
-    this.props.requestUsers(this.props.currentPage, this.props.pageSize);
+    let { currentPage, pageSize } = this.props;
+    this.props.requestUsers(currentPage, pageSize);
   }
 
   onPageChanged = (pageNumber) => {
-    this.props.requestUsers(pageNumber, this.props.pageSize);
+    let { pageSize } = this.props;
+    this.props.requestUsers(pageNumber, pageSize);
   };
 
   render() {

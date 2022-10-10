@@ -1,7 +1,7 @@
 import userAvatar from '../../img/userAvatar.jpeg';
 import { userAPI } from '../../componets/API/API';
 
-const GET_FRIENDS_ITEMS = 'GET_FRIENDS_ITEMS';
+const GET_FRIENDS_ITEMS = 'sideBar/GET_FRIENDS_ITEMS';
 
 let initialState = {
   peoplesData: [
@@ -98,10 +98,9 @@ export const getPeoplesItems = (peoples) => ({
 });
 
 export const getPeoples = () => {
-  return (dispatch) => {
-    userAPI.getUser().then((data) => {
-      dispatch(getPeoplesItems(data.items));
-    });
+  return async (dispatch) => {
+    let response = await userAPI.getUser();
+    dispatch(getPeoplesItems(response.data.items));
   };
 };
 

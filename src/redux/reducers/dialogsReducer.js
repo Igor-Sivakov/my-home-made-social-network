@@ -1,8 +1,8 @@
 import { userAPI } from '../../componets/API/API';
 import userAvatar from '../../img/userAvatar.jpeg';
 
-const SEND_NEW_MESSAGE_BODY = 'SEND_NEW_MESSAGE_BODY';
-const ADD_FRIENDS_FOR_DIALOGS = 'ADD_FRIENDS_FOR_DIALOGS';
+const SEND_NEW_MESSAGE_BODY = 'dialogs/SEND_NEW_MESSAGE_BODY';
+const ADD_FRIENDS_FOR_DIALOGS = 'dialogs/ADD_FRIENDS_FOR_DIALOGS';
 
 let initialState = {
   dialogsData: [
@@ -169,10 +169,9 @@ export const addFriendsForDialogs = (friends) => ({
 });
 
 export const getFriendsForDialogs = () => {
-  return (dispatch) => {
-    userAPI.getUser().then((data) => {
-      dispatch(addFriendsForDialogs(data.items));
-    });
+  return async (dispatch) => {
+    let response = await userAPI.getUser();
+    dispatch(addFriendsForDialogs(response.data.items));
   };
 };
 

@@ -13,21 +13,13 @@ let instance = axios.create({
 
 export const userAPI = {
   getUser(currentPage = 1, pageSize = 10) {
-    return instance
-      .get(`users?page=${currentPage}&count=${pageSize}`)
-      .then((response) => {
-        return response.data;
-      });
+    return instance.get(`users?page=${currentPage}&count=${pageSize}`);
   },
   follow(userId) {
-    return instance.post(`follow/${userId}`, {}).then((response) => {
-      return response.data;
-    });
+    return instance.post(`follow/${userId}`, {});
   },
   unfollow(userId) {
-    return instance.delete(`follow/${userId}`).then((response) => {
-      return response.data;
-    });
+    return instance.delete(`follow/${userId}`);
   },
 };
 
@@ -46,9 +38,7 @@ export const profileAPI = {
 
 export const authAPI = {
   getAuth() {
-    return instance.get(`auth/me`).then((response) => {
-      return response.data;
-    });
+    return instance.get(`auth/me`);
   },
   signIn(formData) {
     return instance.post(`auth/login`, formData);
