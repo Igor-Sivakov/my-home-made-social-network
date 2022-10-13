@@ -1,4 +1,4 @@
-.find-friends__pagination { 
+.pagination { 
   min-width: 200px;
   font-size: 15px;
   display: flex; 
@@ -6,7 +6,7 @@
   margin-top: 30px;
 }
 
-.find-friends__pagination__page {
+.pagination__page {
   margin: 0px 5px 0px 5px;
 }
 

@@ -31,7 +31,7 @@ const Users = ({
         </button>
       </div>
       <Pagination
-        totalUsersCount={totalUsersCount}
+        totalItemsCount={totalUsersCount}
         pageSize={pageSize}
         currentPage={currentPage}
         onPageChanged={props.onPageChanged}

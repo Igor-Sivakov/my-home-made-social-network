@@ -2,7 +2,7 @@ import React from 'react';
 import { create } from 'react-test-renderer';
 import ProfileStatusCC from './ProfileStatusCC';
 
-describe('ProfileStatusCC component', () => {
+describe('ProfileStatusCC component tests', () => {
   test('status form props should be in the state', () => {
     const component = create(<ProfileStatusCC status={'it-kamasutra'} />);
     const instance = component.getInstance();

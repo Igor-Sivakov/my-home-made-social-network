@@ -1,12 +1,13 @@
 import './Pagination.css';
 
 const Pagination = ({
-  totalUsersCount,
+  totalItemsCount,
   pageSize,
   currentPage,
   onPageChanged,
+  halfPortionSize = 5,
 }) => {
-  let pagesCount = Math.ceil(totalUsersCount / pageSize);
+  let pagesCount = Math.ceil(totalItemsCount / pageSize);
 
   let pages = [];
 
@@ -15,16 +16,16 @@ const Pagination = ({
   }
 
   let curP = currentPage;
-  let curPF = curP - 5 < 0 ? 0 : curP - 5;
-  let curPL = curP + 5;
+  let curPF = curP - halfPortionSize < 0 ? 0 : curP - halfPortionSize;
+  let curPL = curP + halfPortionSize;
   let slicedPages = pages.slice(curPF, curPL);
 
   return (
-    <div className='find-friends__pagination'>
+    <div className='pagination'>
       {slicedPages.map((page) => {
         return (
-          <div className='find-friends__pagination__page' key={page}>
-            <div
+          <div className='pagination__page' key={page}>
+            <span
               key={page}
               className={currentPage === page ? 'selected_page' : ''}
               onClick={(event) => {
@@ -32,7 +33,7 @@ const Pagination = ({
               }}
             >
               {page}
-            </div>
+            </span>
           </div>
         );
       })}
