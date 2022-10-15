@@ -18,12 +18,33 @@
   border-radius: 50%;
 }
 
-.card__wrapper {
+.card__avatar__addNewPhotoBtn {
+  border: none;
+  display: inline-block;
+  width: 120px;
+  height: 22px;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 5px;
+  padding-top: 4px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.card__avatar__addNewPhotoBtn:hover{
+  color: aliceblue;
+  background-color: gold;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.card__info__wrapper {
   margin-left: 30px;
   line-height: 50%;
 }
 
-.card__userName__h3 {
+.card__info__userName__h3 {
   font-size: 22px;
   margin-bottom: 20px;
 }

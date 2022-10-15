@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Login from './Login';
-import { signIn } from './../../redux/reducers/authReducer';
+import { signIn } from '../../redux/reducers/authReducer';
 import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { getIsAuth } from '../../redux/selectors/authSelectors';

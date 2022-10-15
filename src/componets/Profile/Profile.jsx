@@ -20,6 +20,8 @@ const Profile = (props) => {
           lookingForAJob={props.lookingForAJob}
           status={props.status}
           updateUserStatus={props.updateUserStatus}
+          isOwner={!props.router.params.userId}
+          savePhoto={props.savePhoto}
         />
       </div>
       <PostForm addPost={props.addPost} />

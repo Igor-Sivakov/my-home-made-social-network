@@ -13,7 +13,7 @@ const PstForm = (props) => {
       <Field
         className='post__textArea'
         name='postText'
-        placeholder='your news...'
+        placeholder='What`s on your mind today?'
         validate={[norequired, maxLength]}
         component={Textarea}
       />
@@ -34,7 +34,7 @@ const PostForm = React.memo((props) => {
   return (
     <div className='post-inner'>
       <div className='post-inner__wrapper'>
-        <div className='post__h3'>Posts</div>
+        <div className='post__h3'>Add new post</div>
         <ReduxPostForm onSubmit={addNewPost} />
       </div>
     </div>

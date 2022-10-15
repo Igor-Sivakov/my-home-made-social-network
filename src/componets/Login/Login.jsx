@@ -1,7 +1,7 @@
 import './Login.css';
 import { reduxForm, Field } from 'redux-form';
-import { minMaxLengthCreator, required } from './../utils/validators';
-import { FormElementConstructor } from './../common/formContrlos/formControls';
+import { minMaxLengthCreator, required } from '../utils/validators';
+import { FormElementConstructor } from '../common/formContrlos/formControls';
 import { NavLink } from 'react-router-dom';
 
 const LoginForm = (props) => {
