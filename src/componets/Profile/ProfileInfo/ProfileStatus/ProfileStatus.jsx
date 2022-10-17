@@ -4,13 +4,14 @@ import React, { useState, useEffect } from 'react';
 const ProfileStatus = (props) => {
   let [editMode, setEditMode] = useState(false);
   let [status, setStatus] = useState(props.status);
+  let isOwner = props.isOwner;
 
   useEffect(() => {
     setStatus(props.status);
   }, [props.status]);
 
   let activateEditMode = () => {
-    setEditMode(true);
+    if (isOwner) setEditMode(true);
   };
 
   let deactivateEditMode = () => {
@@ -26,7 +27,11 @@ const ProfileStatus = (props) => {
     <div>
       <div>
         {!editMode && (
-          <span onDoubleClick={activateEditMode}>
+          <span
+            onDoubleClick={() => {
+              activateEditMode(isOwner);
+            }}
+          >
             {props.status || '----------------'}
           </span>
         )}

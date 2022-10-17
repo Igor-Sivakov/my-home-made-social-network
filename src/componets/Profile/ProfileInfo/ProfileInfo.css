@@ -1,7 +1,6 @@
 .card {
   display: flex;
-  margin-top: 30px;
-  margin-left: 30px;
+  margin: 30px 30px 0px 30px;
 }
 
 .card__avatar {
@@ -16,6 +15,7 @@
   height: 100%;
   background-size: cover;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .card__avatar__addNewPhotoBtn {
@@ -39,19 +39,6 @@ input[type="file"] {
   display: none;
 }
 
-.card__info__wrapper {
-  margin-left: 30px;
-  line-height: 50%;
-}
-
-.card__info__userName__h3 {
-  font-size: 22px;
-  margin-bottom: 20px;
-}
-
-.card__info__p {
-  font-size: 16px;
-}
-.card__info__p_mod-marg {
-  margin-top: 30px;
-}
+.card__data {
+  width: 100%;
+} 

@@ -5,6 +5,8 @@ import {
   getUserStatus,
   updateUserStatus,
   savePhoto,
+  saveProfileUpdate,
+  updateProfileExtraState,
 } from '../../redux/reducers/profileReducer';
 import { connect } from 'react-redux';
 import React from 'react';
@@ -18,6 +20,8 @@ import {
   getProfileLookingForAJob,
   getProfilePhotos,
   getProfileStatus,
+  getProfile,
+  getProfileExtra,
 } from '../../redux/selectors/profileSelectors';
 import { getAuthId } from '../../redux/selectors/authSelectors';
 
@@ -48,6 +52,8 @@ class ProfileContainer extends React.Component {
           {...this.props}
           updateUserStatus={this.props.updateUserStatus}
           savePhoto={this.props.savePhoto}
+          saveProfileUpdate={this.props.saveProfileUpdate}
+          updateProfileExtraState={this.props.updateProfileExtraState}
         />
       </>
     );
@@ -63,6 +69,8 @@ let mapStateToProps = (state) => {
     lookingForAJob: getProfileLookingForAJob(state),
     status: getProfileStatus(state),
     authUserId: getAuthId(state),
+    profile: getProfile(state),
+    profileExtra: getProfileExtra(state),
   };
 };
 
@@ -85,6 +93,8 @@ export default compose(
     getUserStatus,
     updateUserStatus,
     savePhoto,
+    saveProfileUpdate,
+    updateProfileExtraState,
   }),
   withAuthReNavigate
 )(ProfileContainer);

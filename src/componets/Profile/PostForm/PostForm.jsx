@@ -11,11 +11,11 @@ const PstForm = (props) => {
   return (
     <form onSubmit={props.handleSubmit}>
       <Field
-        className='post__textArea'
         name='postText'
-        placeholder='What`s on your mind today?'
+        placeholder='What`s on your mind, today?'
         validate={[norequired, maxLength]}
         component={Textarea}
+        className='post__textarea'
       />
       <button className='post__btn btn'>Send</button>
     </form>

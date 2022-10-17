@@ -1,0 +1,16 @@
+.card__info__wrapper {
+  margin-left: 30px;
+  line-height: 50%;
+}
+
+.card__info__userName__h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.card__info__p {
+  font-size: 16px;
+}
+.card__info__p_mod-marg {
+  margin-top: 30px;
+}

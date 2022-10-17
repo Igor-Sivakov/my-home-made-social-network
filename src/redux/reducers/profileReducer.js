@@ -5,6 +5,7 @@ const ADD_POST = 'profile/ADD-POST';
 const SET_USER_PROFILE = 'profile/SET_USER_PROFILE';
 const SET_STATUS = 'profile/SET_STATUS';
 const SAVE_PHOTO_SUCCESS = 'profile/SAVE_PHOTO_SUCCESS';
+const UPDATE_PROFILE_EXTRA_STATE = 'profile/UPDATE_PROFILE_EXTRA_STATE';
 
 let initialState = {
   postsData: [
@@ -41,11 +42,15 @@ let initialState = {
     id: 25991,
     fullName: 'Sivakov Igor',
     aboutMe: 'I’ll come back and be stronger',
-    lookingForAJobDescription: 'Looking for a job: //it-kamasutra.com',
+    lookingForAJobDescription: '//it-kamasutra.com',
     photos: {
       large: userInfoAvatar,
       small: userInfoAvatar,
     },
+  },
+  profileExtraState: {
+    homePlace: 'Kiev, Ukrain',
+    education: 'KPI 12',
   },
   status: '',
 };
@@ -85,6 +90,12 @@ const profileReducer = (state = initialState, action) => {
         profile: { ...state.profile, photos: action.photos },
       };
 
+    case UPDATE_PROFILE_EXTRA_STATE:
+      return {
+        ...state,
+        profileExtraState: action.extraState,
+      };
+
     default:
       return state;
   }
@@ -105,6 +116,11 @@ const setStatus = (status) => ({
 const savePhotoSuccess = (photos) => ({
   type: SAVE_PHOTO_SUCCESS,
   photos,
+});
+
+export const updateProfileExtraState = (extraState) => ({
+  type: UPDATE_PROFILE_EXTRA_STATE,
+  extraState,
 });
 
 export const getUserProfile = (userId) => {
@@ -135,6 +151,14 @@ export const savePhoto = (file) => {
     let response = await profileAPI.savePhoto(file);
     dispatch(savePhotoSuccess(response.data.data.photos));
   };
+};
+
+export const saveProfileUpdate = (formData) => async (dispatch, getState) => {
+  const userId = getState().auth.id;
+  let response = await profileAPI.saveProfileUpdate(formData);
+  if (response.data.resultCode === 0) {
+    dispatch(getUserProfile(userId));
+  }
 };
 
 export default profileReducer;

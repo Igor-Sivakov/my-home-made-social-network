@@ -14,6 +14,8 @@ const Profile = (props) => {
       <div>
         <Wallpaper />
         <ProfileInfo
+          profile={props.profile}
+          profileExtra={props.profileExtra}
           photos={props.photos}
           fullName={props.fullName}
           aboutMe={props.aboutMe}
@@ -22,6 +24,8 @@ const Profile = (props) => {
           updateUserStatus={props.updateUserStatus}
           isOwner={!props.router.params.userId}
           savePhoto={props.savePhoto}
+          saveProfileUpdate={props.saveProfileUpdate}
+          updateProfileExtraState={props.updateProfileExtraState}
         />
       </div>
       <PostForm addPost={props.addPost} />

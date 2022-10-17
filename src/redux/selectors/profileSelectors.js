@@ -21,3 +21,11 @@ export const getProfileLookingForAJob = (state) => {
 export const getProfileStatus = (state) => {
   return state.profilePage.status;
 };
+
+export const getProfile = (state) => {
+  return state.profilePage.profile;
+};
+
+export const getProfileExtra = (state) => {
+  return state.profilePage.profileExtraState;
+};

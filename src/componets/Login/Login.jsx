@@ -7,6 +7,7 @@ import { NavLink } from 'react-router-dom';
 const LoginForm = (props) => {
   let maxLength = minMaxLengthCreator(3, 30);
   let Input = FormElementConstructor('input');
+
   return (
     <form onSubmit={props.handleSubmit}>
       <h2>Sign in</h2>
