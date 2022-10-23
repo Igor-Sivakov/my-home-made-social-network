@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import React from 'react';
 import { connect } from 'react-redux';
@@ -48,7 +48,7 @@ class App extends React.Component {
     return (
       <div className='body'>
         <div className='app-wrapper'>
-          <BrowserRouter>
+          <HashRouter>
             <HeaderContainer />
             <SideBarConainer />
             <main className='app-wrapper__main'>
@@ -79,7 +79,7 @@ class App extends React.Component {
                 </Routes>
               </React.Suspense>
             </main>
-          </BrowserRouter>
+          </HashRouter>
         </div>
       </div>
     );
