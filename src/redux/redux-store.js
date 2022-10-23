@@ -30,14 +30,3 @@ const store = legacy_createStore(
 );
 
 export default store;
-
-/* let store = configureStore({
-  reducer: {
-    profilePage: profileReducer,
-    dialogsPage: dialogsReducer,
-    sideBar: sideBarReducer,
-  },
-}); */
-
-//let store = legacy_createStore(reducers, applyMiddleware(thunkMiddleware));
-//window._store_ = store;
