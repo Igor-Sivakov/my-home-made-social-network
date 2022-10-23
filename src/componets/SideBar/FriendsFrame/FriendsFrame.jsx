@@ -1,20 +1,20 @@
 import FriendItem from './FriendItem/FriendItem';
 import './FriendsFrame.css';
 
-const FriendsFrame = (props) => {
-  let sideBarElements = props.peoples.map((people) => {
-    if (people.name.length < 16 && props.isAuth) {
+const FriendsFrame = ({ peoples, getUserProfile, isAuth }) => {
+  let sideBarElements = peoples.map((people) => {
+    if (people.name.length < 16 && isAuth) {
       return (
         <FriendItem
           state={people}
           key={people.id}
-          getUserProfile={props.getUserProfile}
+          getUserProfile={getUserProfile}
         />
       );
     }
   });
 
-  if (props.isAuth) {
+  if (isAuth) {
     return (
       <div className='fiendsFrame'>
         <h2 className='fiendsFrame__h2'>

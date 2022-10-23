@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import { Navigate } from 'react-router-dom';
+import { getIsAuth } from '../../redux/selectors/authSelectors';
 
 let mapDispatchToPropsForReNavigate = (state) => {
   return {
-    isAuth: state.auth.isAuth,
+    isAuth: getIsAuth(state),
   };
 };
 

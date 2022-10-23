@@ -8,10 +8,11 @@ import Settings from './componets/Settings/Settings';
 import ProfileContainer from './componets/Profile/ProfileContainer';
 import SideBarConainer from './componets/SideBar/SideBarContainer';
 import HeaderContainer from './componets/Header/HeaderContainer';
-import { initializeApp } from './redux/reducers/appReducer';
+import { initializeApp, showGlobalError } from './redux/reducers/appReducer';
 import Preloader from './componets/common/preloader/preloader';
 import { compose } from 'redux';
-import { getInitialized } from './redux/selectors/appSelectors';
+import { getInitialized, getGlobalError } from './redux/selectors/appSelectors';
+import GlobalErrorMessage from './componets/GlobalErrorMessage/GlobalErrorMessage';
 
 const DialogsContainer = React.lazy(() =>
   import('./componets/Dialogs/DialogsContainer')
@@ -24,8 +25,20 @@ const LoginContainer = React.lazy(() =>
 );
 
 class App extends React.Component {
+  catchAllUnhandledErrors = (promiseRejectionEvent) => {
+    this.props.showGlobalError(promiseRejectionEvent.reason.message);
+  };
   componentDidMount() {
     this.props.initializeApp();
+    // catch global error
+    window.addEventListener('unhandledrejection', this.catchAllUnhandledErrors);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener(
+      'unhandledrejection',
+      this.catchAllUnhandledErrors
+    );
   }
 
   render() {
@@ -39,6 +52,9 @@ class App extends React.Component {
             <HeaderContainer />
             <SideBarConainer />
             <main className='app-wrapper__main'>
+              {this.props.globalError && (
+                <GlobalErrorMessage error={this.props.globalError} />
+              )}
               <React.Suspense
                 fallback={
                   <div>
@@ -59,6 +75,7 @@ class App extends React.Component {
                   <Route path='/FindFriends' element={<UsersContainer />} />
                   <Route path='/Settings' element={<Settings />} />
                   <Route path='/Login' element={<LoginContainer />} />
+                  <Route path='*' element={<div>404 NOT FOUND</div>} />
                 </Routes>
               </React.Suspense>
             </main>
@@ -72,11 +89,13 @@ class App extends React.Component {
 let mapStateToProps = (state) => {
   return {
     initialized: getInitialized(state),
+    globalError: getGlobalError(state),
   };
 };
 
 export default compose(
   connect(mapStateToProps, {
     initializeApp,
+    showGlobalError,
   })
 )(App);

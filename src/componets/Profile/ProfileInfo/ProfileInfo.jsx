@@ -5,12 +5,12 @@ import ProfileData from './ProfileData/ProfileData';
 import React, { useState } from 'react';
 import ProfileDataForm from './ProfileDataForm/ProfileDataForm';
 
-const ProfileInfo = (props) => {
+const ProfileInfo = ({ isOwner, fullName, savePhoto, photos, ...props }) => {
   const [addNewPhoto, setAddNewPhoto] = useState(false);
   const [editMod, setEditMod] = useState(false);
   const [editModForm, setEditModForm] = useState(true);
 
-  if (!props.fullName) {
+  if (!fullName) {
     return <Preloader />;
   }
 
@@ -20,7 +20,7 @@ const ProfileInfo = (props) => {
 
   const onMainPhotoSelected = (photo) => {
     if (photo.target.files.length) {
-      props.savePhoto(photo.target.files[0]).then(setAddNewPhoto(false));
+      savePhoto(photo.target.files[0]).then(setAddNewPhoto(false));
     }
   };
 
@@ -29,14 +29,12 @@ const ProfileInfo = (props) => {
       <div>
         <div className='card__avatar'>
           <img
-            src={
-              props.photos.large != null ? props.photos.large : userInfoAvatar
-            }
+            src={photos.large != null ? photos.large : userInfoAvatar}
             alt='avatar'
             onDoubleClick={addNewProfilePhotoBtnOn}
           />
         </div>
-        {props.isOwner && addNewPhoto && (
+        {isOwner && addNewPhoto && (
           <label className='card__avatar__addNewPhotoBtn btn'>
             Upload foto
             <input type={'file'} onChange={onMainPhotoSelected} />
@@ -44,7 +42,7 @@ const ProfileInfo = (props) => {
         )}
       </div>
       <div className='card__data'>
-        {editMod && props.isOwner ? (
+        {editMod && isOwner ? (
           <ProfileDataForm
             {...props}
             setEditMod={setEditMod}
@@ -55,6 +53,8 @@ const ProfileInfo = (props) => {
         ) : (
           <ProfileData
             {...props}
+            fullName={fullName}
+            isOwner={isOwner}
             setEditModForm={setEditModForm}
             setEditMod={setEditMod}
           />

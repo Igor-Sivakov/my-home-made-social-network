@@ -4,12 +4,12 @@ import './Dialogs.css';
 import InvertMessage from './Messages/InvertMessage/InvertMessage';
 import MessageForm from './MessageForm/MessageForm';
 
-const Dialogs = (props) => {
-  let dialogElements = props.dialogsData.map((dialog) => (
+const Dialogs = ({ messagesData, dialogsData, ...props }) => {
+  let dialogElements = dialogsData.map((dialog) => (
     <DialogListItem state={dialog} key={dialog.id} />
   ));
-
-  let messageElements = props.messagesData.map((mail) => {
+  // user id emulator
+  let messageElements = messagesData.map((mail) => {
     let j = [2, 5, 7, 3, 9, 11, 13, 15, 17];
     for (let i = 0; i < j.length; i++) {
       if (j[i] === mail.id) {

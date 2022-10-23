@@ -4,6 +4,7 @@ import Pagination from '../common/Pagination/Pagination';
 
 const Users = ({
   state: { totalUsersCount, pageSize, currentPage, users, ...state },
+  onPageChanged,
   ...props
 }) => {
   let userProfileElement = users.map((profile) => (
@@ -24,7 +25,7 @@ const Users = ({
         <button
           className='find-friends__pageBtn btn'
           onClick={(event) => {
-            props.onPageChanged(currentPage + 1);
+            onPageChanged(currentPage + 1);
           }}
         >
           Show more
@@ -34,7 +35,7 @@ const Users = ({
         totalItemsCount={totalUsersCount}
         pageSize={pageSize}
         currentPage={currentPage}
-        onPageChanged={props.onPageChanged}
+        onPageChanged={onPageChanged}
       />
     </div>
   );

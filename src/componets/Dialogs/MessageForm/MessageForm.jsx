@@ -4,11 +4,10 @@ import { reduxForm, Field } from 'redux-form';
 import { TextareaForMessages } from '../../common/formContrlos/formControls';
 import { minMaxLengthCreator, norequired } from '../../utils/validators';
 
-const MsgForm = (props) => {
+const MsgForm = ({ handleSubmit }) => {
   let maxLength = minMaxLengthCreator(0, 200);
-
   return (
-    <form className='messageForm__inner' onSubmit={props.handleSubmit}>
+    <form className='messageForm__inner' onSubmit={handleSubmit}>
       <Field
         className='messageForm__textArea'
         name='messageText'

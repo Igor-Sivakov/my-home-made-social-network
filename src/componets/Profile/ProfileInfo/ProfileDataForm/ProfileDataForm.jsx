@@ -1,20 +1,23 @@
 import './ProfileDataForm.css';
 import { reduxForm, Field } from 'redux-form';
-import { FormElementConstructor } from '../../../common/formContrlos/formControls';
+import {
+  FormElementConstructorInput,
+  FormElementConstructorTextarea,
+} from '../../../common/formContrlos/formControls';
+import { minMaxLengthCreator, required } from '../../../utils/validators';
 
-const ProfileDataFormTop = (props) => {
-  const Input = FormElementConstructor('input');
-  const Textarea = FormElementConstructor('textarea');
-
+const ProfileDataFormTop = ({ handleSubmit }) => {
+  const minMaxLengthTextArea = minMaxLengthCreator(5, 200);
+  const minMaxLengthInput = minMaxLengthCreator(2, 30);
   return (
-    <form className='profile-form' onSubmit={props.handleSubmit}>
+    <form className='profile-form' onSubmit={handleSubmit}>
       <label>
         Full name:
         <Field
           name='fullName'
           placeholder='Enter your name...'
-          validate={[]}
-          component={Input}
+          validate={[required, minMaxLengthInput]}
+          component={FormElementConstructorInput}
           className='profile-form__input'
         />
       </label>
@@ -23,8 +26,8 @@ const ProfileDataFormTop = (props) => {
         <Field
           name='aboutMe'
           placeholder='A few words about yourself...'
-          validate={[]}
-          component={Textarea}
+          validate={[required, minMaxLengthTextArea]}
+          component={FormElementConstructorTextarea}
           className='profile-form__textarea'
         />
       </label>
@@ -33,8 +36,9 @@ const ProfileDataFormTop = (props) => {
         <Field
           name='lookingForAJobDescription'
           placeholder='Your professional skills...'
-          validate={[]}
-          component={Textarea}
+          validate={[required, minMaxLengthTextArea]}
+          component={FormElementConstructorTextarea}
+          autoFocus={true}
           className='profile-form__textarea'
         />
       </label>
@@ -51,17 +55,17 @@ const ReduxProfileDataFormTop = reduxForm({
   destroyOnUnmount: false,
 })(ProfileDataFormTop);
 
-const ProfileDataFormBottom = (props) => {
-  const Input = FormElementConstructor('input');
+const ProfileDataFormBottom = ({ handleSubmit }) => {
+  const minMaxLength = minMaxLengthCreator(3, 30);
   return (
-    <form onSubmit={props.handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <label>
         My home place:
         <Field
           name='homePlace'
           placeholder='Where do you live?'
-          validate={[]}
-          component={Input}
+          validate={[required, minMaxLength]}
+          component={FormElementConstructorInput}
           className='profile-form__input'
         />
       </label>
@@ -70,8 +74,8 @@ const ProfileDataFormBottom = (props) => {
         <Field
           name='education'
           placeholder='Your alma mater...'
-          validate={[]}
-          component={Input}
+          validate={[required]}
+          component={FormElementConstructorInput}
           className='profile-form__input'
         />
       </label>
@@ -86,19 +90,25 @@ const ReduxProfileDataFormBottom = reduxForm({
   destroyOnUnmount: false,
 })(ProfileDataFormBottom);
 
-const ProfileDataForm = (props) => {
+const ProfileDataForm = ({
+  editModForm,
+  setEditMod,
+  saveProfileUpdate,
+  updateProfileExtraState,
+  ...props
+}) => {
   const onSubmitAPI = (formData) => {
-    props.saveProfileUpdate(formData);
-    props.setEditMod(false);
+    saveProfileUpdate(formData);
+    setEditMod(false);
   };
   const onSubmitState = (formData) => {
-    props.updateProfileExtraState(formData);
-    props.setEditMod(false);
+    updateProfileExtraState(formData);
+    setEditMod(false);
   };
 
   return (
     <div className='profile-dataForm__wrapper'>
-      {props.editModForm ? (
+      {editModForm ? (
         <ReduxProfileDataFormTop
           initialValues={props.profile}
           onSubmit={onSubmitAPI}

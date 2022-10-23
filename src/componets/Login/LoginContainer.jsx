@@ -3,7 +3,7 @@ import Login from './Login';
 import { signIn } from '../../redux/reducers/authReducer';
 import React from 'react';
 import { Navigate } from 'react-router-dom';
-import { getIsAuth } from '../../redux/selectors/authSelectors';
+import { getIsAuth, getCapthcaUrl } from '../../redux/selectors/authSelectors';
 
 class LoginContainer extends React.Component {
   componentDidUpdate(prevProps) {
@@ -24,6 +24,7 @@ class LoginContainer extends React.Component {
 let mapStateToProps = (state) => {
   return {
     authInfo: getIsAuth(state),
+    captchaUrl: getCapthcaUrl(state),
   };
 };
 

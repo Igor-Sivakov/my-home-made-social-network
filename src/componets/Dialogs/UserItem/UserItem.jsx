@@ -1,10 +1,10 @@
 import './UserItem.css';
 
-const UserItem = (props) => {
+const UserItem = ({ state: { avatar, name } }) => {
   return (
     <div className='userItem__avatar'>
-      <img src={props.state.avatar} alt='message-avatar' />
-      <p className='userItem__name'>{props.state.name}</p>
+      <img src={avatar} alt='message-avatar' />
+      <p className='userItem__name'>{name}</p>
     </div>
   );
 };

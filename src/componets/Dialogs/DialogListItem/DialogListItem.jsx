@@ -2,21 +2,19 @@ import { NavLink } from 'react-router-dom';
 import './DialogListItem.css';
 import userAvatar from './../../../img/userAvatar.jpeg';
 
-const DialogListItem = (props) => {
-  let path = '/Dialogs/' + props.state.id;
+const DialogListItem = ({ state: { name, photos, id } }) => {
+  let path = '/Dialogs/' + id;
   return (
     <li className='dialogList__item'>
       <div className='dialogList__item__boxForPoint'>
         <div className='dialogList__point'></div>
         <NavLink to={path} className='dialogList__item__conteiner'>
           <img
-            src={
-              props.state.photos.small ? props.state.photos.small : userAvatar
-            }
+            src={photos.small ? photos.small : userAvatar}
             className='dialogList__avatar'
             alt='avatar'
           ></img>
-          <p className='dialogList__name'>{props.state.name}</p>
+          <p className='dialogList__name'>{name}</p>
         </NavLink>
       </div>
     </li>

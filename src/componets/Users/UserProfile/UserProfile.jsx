@@ -2,28 +2,27 @@ import './UserProfile.css';
 import userAvatar from '../../../img/userAvatar.jpeg';
 import { NavLink } from 'react-router-dom';
 
-const UserProfile = (props) => {
+const UserProfile = ({
+  user: { id, photos, followed, name, status },
+  followingInProgress,
+  getUnfollow,
+  getFollow,
+}) => {
   return (
     <div className='friends-profile__wrapper'>
       <div className='friends-profile__item'>
-        <NavLink to={'/Profile/' + props.user.id}>
+        <NavLink to={'/Profile/' + id}>
           <img
-            src={
-              props.user.photos.small != null
-                ? props.user.photos.small
-                : userAvatar
-            }
+            src={photos.small != null ? photos.small : userAvatar}
             className='friends-profile__item__img'
             alt='avatar'
           />
         </NavLink>
-        {props.user.followed ? (
+        {followed ? (
           <button
-            disabled={props.followingInProgress.some(
-              (id) => id === props.user.id
-            )}
+            disabled={followingInProgress.some((iD) => iD === id)}
             onClick={() => {
-              props.getUnfollow(props.user.id);
+              getUnfollow(id);
             }}
             className='friends-profile__item__btn btn'
           >
@@ -31,11 +30,9 @@ const UserProfile = (props) => {
           </button>
         ) : (
           <button
-            disabled={props.followingInProgress.some(
-              (id) => id === props.user.id
-            )}
+            disabled={followingInProgress.some((iD) => iD === id)}
             onClick={() => {
-              props.getFollow(props.user.id);
+              getFollow(id);
             }}
             className='friends-profile__item__btn btn'
           >
@@ -45,12 +42,10 @@ const UserProfile = (props) => {
       </div>
       <div className='friends-profile__info'>
         <div className='friends-profile__info__leftSide'>
-          <p className='friends-profile__info__leftSide__name'>
-            {props.user.name}
-          </p>
+          <p className='friends-profile__info__leftSide__name'>{name}</p>
           <p className='friends-profile__info__leftSide__status'>
-            {props.user.status != null
-              ? props.user.status
+            {status != null
+              ? status
               : 'Hi guys! Tomorrow I will be boarding, who is with me?'}
           </p>
         </div>

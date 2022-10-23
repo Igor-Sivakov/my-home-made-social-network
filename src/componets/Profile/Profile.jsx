@@ -4,8 +4,18 @@ import Post from './Post/Post';
 import './Profile.css';
 import Wallpaper from './Wallpaper/Wallpaper';
 
-const Profile = (props) => {
-  let postElements = props.postsData.map((post) => (
+const Profile = ({
+  postsData,
+  router: {
+    params: { userId },
+  },
+  authUserId,
+  ...props
+}) => {
+  const isOwner = !userId;
+  // eslint-disable-next-line eqeqeq
+  const isOwnerById = userId == authUserId;
+  let postElements = postsData.map((post) => (
     <Post state={post} key={post.id} />
   ));
 
@@ -22,7 +32,7 @@ const Profile = (props) => {
           lookingForAJob={props.lookingForAJob}
           status={props.status}
           updateUserStatus={props.updateUserStatus}
-          isOwner={!props.router.params.userId}
+          isOwner={isOwner || isOwnerById}
           savePhoto={props.savePhoto}
           saveProfileUpdate={props.saveProfileUpdate}
           updateProfileExtraState={props.updateProfileExtraState}

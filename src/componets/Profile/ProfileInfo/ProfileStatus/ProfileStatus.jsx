@@ -1,14 +1,13 @@
 import './ProfileStatus.css';
 import React, { useState, useEffect } from 'react';
 
-const ProfileStatus = (props) => {
+const ProfileStatus = ({ status, isOwner, updateUserStatus }) => {
   let [editMode, setEditMode] = useState(false);
-  let [status, setStatus] = useState(props.status);
-  let isOwner = props.isOwner;
+  let [newStatus, setStatus] = useState(status);
 
   useEffect(() => {
-    setStatus(props.status);
-  }, [props.status]);
+    setStatus(status);
+  }, [status]);
 
   let activateEditMode = () => {
     if (isOwner) setEditMode(true);
@@ -16,7 +15,7 @@ const ProfileStatus = (props) => {
 
   let deactivateEditMode = () => {
     setEditMode(false);
-    props.updateUserStatus(status);
+    updateUserStatus(newStatus);
   };
 
   let onStatusChange = (text) => {
@@ -32,7 +31,7 @@ const ProfileStatus = (props) => {
               activateEditMode(isOwner);
             }}
           >
-            {props.status || '----------------'}
+            {status || '----------------'}
           </span>
         )}
       </div>
@@ -42,7 +41,7 @@ const ProfileStatus = (props) => {
             onChange={onStatusChange}
             autoFocus={true}
             onBlur={deactivateEditMode}
-            value={status}
+            value={newStatus}
           ></input>
         )}
       </div>

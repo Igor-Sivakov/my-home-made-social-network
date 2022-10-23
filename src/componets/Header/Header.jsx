@@ -3,9 +3,9 @@ import headerLogo from '../../img/headerLogo.png';
 import reactLogo from '../../img/reactLogo.svg';
 import { NavLink } from 'react-router-dom';
 
-const Header = (props) => {
+const Header = ({ isAuth, authId, authLogin, signOut }) => {
   let onClickSignOutSignIn = () => {
-    if (props.isAuth) return props.signOut();
+    if (isAuth) return signOut();
     else return <NavLink to={'/Login'}></NavLink>;
   };
 
@@ -21,12 +21,12 @@ const Header = (props) => {
           <img src={headerLogo} alt='logo' />
         </div>
         <div className='header-main__auth__container'>
-          {props.isAuth ? (
+          {isAuth ? (
             <NavLink
               className='header-main__auth__link btn'
-              to={'/Profile/' + props.authId}
+              to={'/Profile/' + authId}
             >
-              {props.authLogin}
+              {authLogin}
             </NavLink>
           ) : null}
 
@@ -34,7 +34,7 @@ const Header = (props) => {
             className='header-main__auth__btn btn'
             onClick={onClickSignOutSignIn}
           >
-            {props.isAuth ? 'Sign out' : 'Sign in'}
+            {isAuth ? 'Sign out' : 'Sign in'}
           </button>
         </div>
       </div>

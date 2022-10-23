@@ -2,21 +2,21 @@ import { NavLink } from 'react-router-dom';
 import './FriendItem.css';
 import userAvatar from './../../../../img/userAvatar.jpeg';
 
-const FriendItem = (props) => {
+const FriendItem = ({ getUserProfile, state: { id, photos, name } }) => {
   return (
     <NavLink
-      to={'/Profile/' + props.state.id}
+      to={'/Profile/' + id}
       className='friendItem__conteiner'
       onClick={() => {
-        props.getUserProfile(props.state.id);
+        getUserProfile(id);
       }}
     >
       <img
-        src={props.state.photos.small ? props.state.photos.small : userAvatar}
+        src={photos.small ? photos.small : userAvatar}
         className='friendItem__avatar'
         alt='avatar'
       />
-      <p className='friendItem__name'>{props.state.name}</p>{' '}
+      <p className='friendItem__name'>{name}</p>{' '}
     </NavLink>
   );
 };

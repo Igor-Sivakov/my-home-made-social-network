@@ -1,10 +1,18 @@
 import './ProfileData.css';
 import ProfileStatus from '../ProfileStatus/ProfileStatus';
 
-const ProfileData = (props) => {
+const ProfileData = ({
+  aboutMe,
+  lookingForAJob,
+  fullName,
+  profileExtra: { homePlace, education },
+  setEditModForm,
+  setEditMod,
+  ...props
+}) => {
   const toEditMod = (boolean) => {
-    props.setEditMod(true);
-    props.setEditModForm(boolean);
+    setEditMod(true);
+    setEditModForm(boolean);
   };
 
   return (
@@ -15,7 +23,7 @@ const ProfileData = (props) => {
           toEditMod(true);
         }}
       >
-        {props.fullName != null ? props.fullName : 'Igor Sivakov'}
+        {fullName != null ? fullName : 'Igor Sivakov'}
       </h3>
       <ProfileStatus
         isOwner={props.isOwner}
@@ -29,9 +37,7 @@ const ProfileData = (props) => {
         }}
       >
         About me:&ensp;
-        {props.aboutMe != null
-          ? props.aboutMe
-          : 'I’ll come back and be stronger'}
+        {aboutMe != null ? aboutMe : 'I’ll come back and be stronger'}
       </p>
       <p
         className='card__info__p'
@@ -40,9 +46,7 @@ const ProfileData = (props) => {
         }}
       >
         Looking for a job:&ensp;
-        {props.lookingForAJob != null
-          ? props.lookingForAJob
-          : '//it-kamasutra.com'}
+        {lookingForAJob != null ? lookingForAJob : '//it-kamasutra.com'}
       </p>
       <p
         className='card__info__p'
@@ -50,7 +54,7 @@ const ProfileData = (props) => {
           toEditMod(false);
         }}
       >
-        Lives in:&ensp;{props.profileExtra.homePlace}
+        Lives in:&ensp;{homePlace}
       </p>
       <p
         className='card__info__p'
@@ -58,7 +62,7 @@ const ProfileData = (props) => {
           toEditMod(false);
         }}
       >
-        Education:&ensp;{props.profileExtra.education}
+        Education:&ensp;{education}
       </p>
     </div>
   );

@@ -2,19 +2,18 @@ import './PostForm.css';
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { minMaxLengthCreator, norequired } from './../../utils/validators';
-import { FormElementConstructor } from '../../common/formContrlos/formControls';
+import { FormElementConstructorTextarea } from '../../common/formContrlos/formControls';
 
-const PstForm = (props) => {
-  let maxLength = minMaxLengthCreator(0, 300);
-  let Textarea = FormElementConstructor('textarea');
+const PstForm = ({ handleSubmit }) => {
+  const maxLength = minMaxLengthCreator(0, 300);
 
   return (
-    <form onSubmit={props.handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <Field
         name='postText'
         placeholder='What`s on your mind, today?'
         validate={[norequired, maxLength]}
-        component={Textarea}
+        component={FormElementConstructorTextarea}
         className='post__textarea'
       />
       <button className='post__btn btn'>Send</button>

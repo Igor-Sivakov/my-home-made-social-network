@@ -1,22 +1,21 @@
 import './Login.css';
 import { reduxForm, Field } from 'redux-form';
 import { minMaxLengthCreator, required } from '../utils/validators';
-import { FormElementConstructor } from '../common/formContrlos/formControls';
+import { FormElementConstructorInput } from '../common/formContrlos/formControls';
 import { NavLink } from 'react-router-dom';
 
-const LoginForm = (props) => {
-  let maxLength = minMaxLengthCreator(3, 30);
-  let Input = FormElementConstructor('input');
+const LoginForm = ({ handleSubmit, captchaUrl, error }) => {
+  const maxLength = minMaxLengthCreator(3, 30);
 
   return (
-    <form onSubmit={props.handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <h2>Sign in</h2>
       <div>
         <Field
           name='email'
           placeholder='email'
           validate={[required, maxLength]}
-          component={Input}
+          component={FormElementConstructorInput}
           className='login-form__input'
         />
       </div>
@@ -25,17 +24,25 @@ const LoginForm = (props) => {
           name='password'
           placeholder='Password'
           validate={[required, maxLength]}
-          component={Input}
+          component={FormElementConstructorInput}
           className='login-form__input'
         />
       </div>
-      {props.error && (
-        <div className='login-form__summeryError'>{props.error}</div>
+      {captchaUrl && <img src={captchaUrl} alt='captcha' />}
+      {captchaUrl && (
+        <Field
+          name='captcha'
+          placeholder='Enter symbols from image...'
+          validate={[required]}
+          component={FormElementConstructorInput}
+          className='login-form__input'
+        />
       )}
+      {error && <div className='login-form__summeryError'>{error}</div>}
       <div className='login-form__checkbox__container'>
         <Field
           name='rememberMe'
-          component={Input}
+          component={FormElementConstructorInput}
           type='checkbox'
           className='login-form__checkbox'
         />
@@ -55,16 +62,16 @@ const ReduxLoginForm = reduxForm({
   form: 'login',
 })(LoginForm);
 
-const Login = (props) => {
+const Login = ({ signIn, captchaUrl }) => {
   const onSubmit = (formData) => {
-    props.signIn(formData);
+    signIn(formData);
   };
 
   return (
     <div>
       <h1>LOGIN</h1>
       <div className='login-form__wrapper'>
-        <ReduxLoginForm onSubmit={onSubmit} />
+        <ReduxLoginForm captchaUrl={captchaUrl} onSubmit={onSubmit} />
       </div>
     </div>
   );
